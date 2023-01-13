@@ -45,10 +45,9 @@ class DeckFromExcel(models.Model):
             "setCode": deck_serialized['setCode'].value,
             "relDeckCards": cards
         }
-        print(dto)
-        dto_json = json.dumps(dto, indent = 4)
-        print(dto_json)
-        return dto_json
-       # response = requests.post(GLOBAL_SETTINGS['CARDS_ADMIN_API']+'/deck/new-deck-collection-yugipedia', headers={"Authorization": token}, json=dto)
-        #print(response)
+        #print(dto)
+        response = requests.post(GLOBAL_SETTINGS['CARDS_ADMIN_API']+'/deck/new-deck-collection-yugipedia', headers={"Authorization": token}, json=dto)
+        print(response)
     
+        return dto
+       
