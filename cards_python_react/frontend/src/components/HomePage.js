@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./../../static/css/HomePage.css"
 import HeaderContainer from "./HeaderContainer"
+import Cards from "./Cards"
 
 import {
     BrowserRouter as Router,
@@ -16,7 +17,11 @@ import {
                      <div className="container">
                         <Switch>
                             <Route exact path="/">
-                                <HeaderContainer text={'Cards Python Management'} />               
+                                <HeaderContainer text={'Cards Python Management'} />    
+
+                                <div className="container-cards">
+                                   <Cards />
+                                </div>           
                             </Route>
                         </Switch>
                     </div>       
