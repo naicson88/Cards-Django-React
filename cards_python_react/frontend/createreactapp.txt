@@ -1,0 +1,4 @@
+inside folder: 
+yarn install
+npm init -y
+npm install @babel/core @babel/preset-env @babel/preset-react babel-loader react react-dom react-router-dom webpack webpack-cli
