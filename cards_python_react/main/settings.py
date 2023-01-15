@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'main',
     'excel',
     'utils',
-    'requests'
+    'requests',
+    'corsheaders',
 
 ]
 
@@ -55,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -138,3 +141,24 @@ GLOBAL_SETTINGS = {
 }
 
 
+CORS_ALLOW_ALL_ORIGINS = True
+
+# ALLOWED_HOSTS = ["localhost","127.0.0.1"]
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:3000',  # for localhost (REACT Default)
+#     'http://127.0.0.1:3000',  # for network 
+#     'http://localhost:8080',  # for localhost (Developlemt)
+#     'http://127.0.0.1:8080',  # for network (Development)
+# )
+
+# CORS_ALLOW_HEADERS = [
+# 'accept',
+# 'accept-encoding',
+# 'authorization',
+# 'content-type',
+# 'Access-Control-Allow-Origin',
+# 'origin',
+# 'user-agent',
+# 'x-csrftoken',
+# 'x-requested-with',
+# ]

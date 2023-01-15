@@ -1,6 +1,6 @@
 body {
-    margin: 0;
-    background-color: #222;
+    margin: 0 !important;
+    background-color: #222 !important;
 }
 
 * {

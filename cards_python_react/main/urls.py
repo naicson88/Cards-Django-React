@@ -28,5 +28,6 @@ urlpatterns = [
     path('create-deck', excel_views.create_deck),
     path('get-decks', excel_views.deck_list),
     
-    path('', include('frontend.urls'))
+    path('', include('frontend.urls')),
+    path('excel-deck', include('frontend.urls'))
 ]

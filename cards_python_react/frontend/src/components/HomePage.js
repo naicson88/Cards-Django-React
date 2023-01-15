@@ -13,20 +13,16 @@ import {
 
  const HomePage = () => { 
             return (
-                <Router>
-                     <div className="container">
-                        <Switch>
-                            <Route exact path="/">
-                                <HeaderContainer text={'Cards Python Management'} />    
+              
+            <div className="container">
+                <HeaderContainer text={'Cards Python Management'} />    
 
-                                <div className="container-cards">
-                                   <Cards />
-                                </div>           
-                            </Route>
-                        </Switch>
-                    </div>       
-                </Router>
-            )
+                <div className="container-cards">
+                    <Cards />
+                </div>                                            
+            </div>       
+              
+        )
         
   }
 

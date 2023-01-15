@@ -1,0 +1,21 @@
+
+
+.div-form {
+    width: 60%;  
+
+    margin-top: 20px;
+    margin-left: 20%;
+   
+ 
+}
+
+form {
+    border: solid silver thin;  
+    padding: 10px;
+    border-radius: 10px;
+}
+
+input {
+    background-color: #444444 !important;
+    color: #fff !important;
+}

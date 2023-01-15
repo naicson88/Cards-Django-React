@@ -3,5 +3,6 @@ from .views import index
 
 urlpatterns = [
     path('', index),
+    path('excel-deck', index)
   
 ]
