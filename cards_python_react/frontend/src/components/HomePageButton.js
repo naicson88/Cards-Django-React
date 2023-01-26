@@ -1,9 +1,13 @@
 import React from "react";
 import { Button} from "reactstrap";
+import API_DJANGO from './../constants'
+import { useHistory } from "react-router-dom";
 const HomePageButton = () => {
 
+    const history = useHistory();
+
     const goHomePage = () => {
-        window.location = 'http://127.0.0.1:8000'
+        history.push('/') 
     }
 
     return(

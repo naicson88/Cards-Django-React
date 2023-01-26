@@ -14,7 +14,7 @@ import {
  const HomePage = () => { 
             return (
               
-            <div className="container">
+            <div className="main-container">
                 <HeaderContainer text={'Cards Python Management'} />    
 
                 <div className="container-cards">

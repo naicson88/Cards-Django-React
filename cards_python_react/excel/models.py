@@ -1,6 +1,7 @@
 from django.db import models
 from utils.models import Utils
 from main.settings import GLOBAL_SETTINGS
+import urllib.parse
 import pandas
 import requests
 import re
@@ -30,11 +31,13 @@ class DeckFromExcel(models.Model):
         cards = DeckFromExcel.read_excel()
         
         for card in cards:
-            api_data = requests.get(GLOBAL_SETTINGS['YUGIOH_API']+'name='+card['name'].strip())
-            number = api_data.json()['data'][0]['id']
-            time.sleep(1)
-            card['cardNumber'] = number
-            print(card)    
+             if(card['cardNumber'] == None):
+                query = urllib.parse.quote(card['name'].strip())
+                api_data = requests.get(GLOBAL_SETTINGS['YUGIOH_API']+'name='+query)
+                number = api_data.json()['data'][0]['id']
+                time.sleep(1)
+                card['cardNumber'] = number
+                print(card)    
         
         dto = {
             "setId": deck_serialized['setId'].value,
