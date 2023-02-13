@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from api import views
 from excel import views as excel_views
+from crawler import views as crawler_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +28,10 @@ urlpatterns = [
     
     path('create-deck', excel_views.create_deck),
     path('get-decks', excel_views.deck_list),
+    path('create-deck-reading-names', excel_views.create_deck_reading_names),
+
+    
+    path('crawler/create-crawler-deck', crawler_views.create_deck),
     
     path('', include('frontend.urls')),
     path('excel-deck', include('frontend.urls'))

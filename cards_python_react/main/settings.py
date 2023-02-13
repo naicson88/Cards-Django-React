@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'frontend',
     'main',
     'excel',
+    'crawler',
     'utils',
+    'scrapy',
     'requests',
     'corsheaders',
 
@@ -137,7 +139,8 @@ GLOBAL_SETTINGS = {
     'CARDS_MAIN_API': 'http://localhost:8080/yugiohAPI',
     'CARDS_ADMIN_API': 'http://localhost:8081/v1/admin',
     'YUGIOH_API': 'https://db.ygoprodeck.com/api/v7/cardinfo.php?',
-    'EXCEL_PATH': 'C:/Users/USER/Documents/PROGRAMACAO/Python/Cards-Python-React/cards_python_react/excel/variant.xlsx'
+    'EXCEL_PATH': 'C:/Users/USER/Documents/PROGRAMACAO/Python/Cards-Python-React/cards_python_react/excel/variant.xlsx',
+    'EXCEL_PATH_NAMES' : 'C:/Users/USER/Documents/PROGRAMACAO/Python/Cards-Python-React/cards_python_react/excel/names.xlsx'
 }
 
 

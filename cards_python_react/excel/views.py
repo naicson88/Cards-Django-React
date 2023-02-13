@@ -25,3 +25,14 @@ def deck_list(request):
         serializer = DeckFromExcelSerializer(data, context={'request': request}, many=True)
         
         return Response(serializer.data)
+
+@api_view(['POST'])
+def create_deck_reading_names (request):
+    serializer = DeckFromExcelSerializer(data=request.data)
+    if serializer.is_valid():
+        deck = DeckFromExcel.read_name_excel(serializer)
+        
+       # serializer.save()
+        return Response(data=deck, status=status.HTTP_201_CREATED)
+    
+    return Response( serializer.errors, status=status.HTTP_400_BAD_REQUEST)
