@@ -30,8 +30,6 @@ const ExcelDeckForm = () => {
 
        if(isValidObj)
             sendDeckObjectToAPI(deckObj)
-
-       console.log(deckObj)
     }
 
     const sendDeckObjectToAPI = (obj) => {
@@ -134,9 +132,7 @@ const ExcelDeckForm = () => {
                             <Label for="setCode">Set Code:</Label>
                             <Input
                                 type="text"
-                                name="setCode"
-                              
-                               
+                                name="setCode"                           
                             />
                         </Col>
                     </Row>

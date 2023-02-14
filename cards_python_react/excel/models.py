@@ -62,12 +62,13 @@ class DeckFromExcel(models.Model):
         list_rel = [];
         
         for nome in excel:
-            query = urllib.parse.quote(nome['name'].strip())
-            print(type(nome))
             try:
+              query = urllib.parse.quote(nome['name'].strip())
+   
+           
               api_data = requests.get(GLOBAL_SETTINGS['YUGIOH_API']+'name='+query)   
               card = api_data.json()['data'][0]
-              print(card.get('id'))
+  
               for rel in card['card_sets']:
                 if rel['set_name'] == deck_serialized['nome'].value:
                     rel_obj = {
@@ -97,7 +98,7 @@ class DeckFromExcel(models.Model):
             "setCode": deck_serialized['setCode'].value,
             "relDeckCards": json.loads(json_list)
         }
-        print(type(obj))
+
         return obj
            
 

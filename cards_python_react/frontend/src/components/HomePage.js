@@ -12,17 +12,27 @@ import {
   } from "react-router-dom";
 
  const HomePage = () => { 
+     const  cards = [
+                {               
+                    "img": "./../../static/images/icons/excel.png",
+                    "description":"DECK FROM EXCEL FILE"
+                },
+                {               
+                    "img": "./../../static/images/icons/names.png",
+                    "description":"DECK FROM EXCEL NAMES"
+                }
+            ]
             return (
               
-            <div className="main-container">
-                <HeaderContainer text={'Cards Python Management'} />    
+                <div className="main-container">
+                    <HeaderContainer text={'Cards Python Management'} />    
 
-                <div className="container-cards">
-                    <Cards />
-                </div>                                            
-            </div>       
+                    <div className="container-cards">
+                    {  cards.map((card, index) =>  <Cards key={index} card={card}/> ) }              
+                    </div>                                            
+                </div>       
               
-        )
+            )
         
   }
 
