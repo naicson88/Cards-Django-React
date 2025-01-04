@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'scrapy',
     'requests',
     'corsheaders',
+    'energy_types'
 
 ]
 

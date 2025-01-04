@@ -18,6 +18,7 @@ from django.urls import path, include
 from api import views
 from excel import views as excel_views
 from crawler import views as crawler_views
+from energy_types import views as energy_types_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,5 +35,9 @@ urlpatterns = [
     path('crawler/create-crawler-deck', crawler_views.create_deck),
     
     path('', include('frontend.urls')),
-    path('excel-deck', include('frontend.urls'))
+    path('excel-deck', include('frontend.urls')),
+    
+    path('energy-types/create', energy_types_views.create_energy_type),
+    path('energy-types/<int:pk>/', energy_types_views.delete_energy_type),
+    path('energy-types', energy_types_views.get_all_energy_types),
 ]
