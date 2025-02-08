@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'requests',
     'corsheaders',
     'energy_types',
-    'pokemon_types'
+    'pokemon_types',
+    'pokemon'
 
 ]
 
