@@ -19,6 +19,7 @@ from api import views
 from excel import views as excel_views
 from crawler import views as crawler_views
 from energy_types import views as energy_types_views
+from pokemon_types import views as pokemon_types
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,4 +41,7 @@ urlpatterns = [
     path('energy-types/create', energy_types_views.create_energy_type),
     path('energy-types/<int:pk>/', energy_types_views.delete_energy_type),
     path('energy-types', energy_types_views.get_all_energy_types),
+    
+    path('pokemon-types/create', pokemon_types.create_pokemon_type),
+    path('pokemon-types', pokemon_types.get_all_pokemon_types),
 ]

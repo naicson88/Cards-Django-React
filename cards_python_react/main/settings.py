@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'scrapy',
     'requests',
     'corsheaders',
-    'energy_types'
+    'energy_types',
+    'pokemon_types'
 
 ]
 

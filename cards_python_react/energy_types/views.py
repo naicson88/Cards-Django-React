@@ -35,4 +35,6 @@ def get_all_energy_types(request):
     serializer = EnergyTypesSerializer(data, context={'request': request}, many=True)
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
-    
+
+
+
