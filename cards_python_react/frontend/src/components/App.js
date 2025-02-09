@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import HomePage from "./HomePage";
 import ExcelDeckForm from "./ExcelDeckForm"
-import PkmHomePage from "./PkmHomePage"
+import PkmHomePage  from "./src/components/PkmHomePage.js"
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -31,7 +32,6 @@ export default class App extends Component {
         )
     }
 }
-
 
 
 const appDiv = document.getElementById("app")
