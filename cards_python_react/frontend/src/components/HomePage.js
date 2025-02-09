@@ -15,11 +15,18 @@ import {
      const  cards = [
                 {               
                     "img": "./../../static/images/icons/excel.png",
-                    "description":"DECK FROM EXCEL FILE"
+                    "description":"DECK FROM EXCEL FILE",
+                    "path": "excel-deck"
                 },
                 {               
                     "img": "./../../static/images/icons/names.png",
-                    "description":"DECK FROM EXCEL NAMES"
+                    "description":"DECK FROM EXCEL NAMES",
+                    "path": "excel-deck"
+                },
+                {               
+                    "img": "./../../static/images/icons/pokeball.png",
+                    "description":"POKEMON CARDS",
+                    "path": "/pkm-home"
                 }
             ]
             return (
@@ -28,7 +35,7 @@ import {
                     <HeaderContainer text={'Cards Python Management'} />    
 
                     <div className="container-cards">
-                    {  cards.map((card, index) =>  <Cards key={index} card={card}/> ) }              
+                     {  cards.map((card, index) =>  <Cards key={index} card={card}/> ) }              
                     </div>                                            
                 </div>       
               

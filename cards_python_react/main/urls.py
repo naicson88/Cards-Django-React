@@ -21,6 +21,7 @@ from crawler import views as crawler_views
 from energy_types import views as energy_types_views
 from pokemon_types import views as pokemon_types
 from pokemon import views as pokemon
+from card import views as card
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -48,4 +49,6 @@ urlpatterns = [
     
     path('pokemon/create', pokemon.create_pokemon),
     path('pokemon', pokemon.get_all_pokemon),
+    
+    path('card/create', card.create_card),
 ]

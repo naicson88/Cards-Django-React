@@ -3,6 +3,7 @@ from .views import index
 
 urlpatterns = [
     path('', index),
-    path('excel-deck', index)
+    path('excel-deck', index),
+    path('pkm-home', index)
   
 ]

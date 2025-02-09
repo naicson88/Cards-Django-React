@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'energy_types',
     'pokemon_types',
-    'pokemon'
+    'pokemon',
+    'card'
 
 ]
 

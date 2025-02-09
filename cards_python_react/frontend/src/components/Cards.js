@@ -6,9 +6,9 @@ const Cards = ({card}) => {
     const history = useHistory();
 
     const handleClick = () => {
-     
-        history.push('/excel-deck')
+        history.push(card.path)
     }
+
     return (
         
         <div className="single-card" onClick={handleClick}>

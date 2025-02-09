@@ -10,11 +10,11 @@ class AttackSerializer(serializers.ModelSerializer):
         return super().create(validated_data)    
 
 class CardSerializer(serializers.ModelSerializer):
-    
+    attack = AttackSerializer(many=True)
     class Meta:
         model = Card
-        fields = ['id', 'number', 'card_name', 'pokemon_type', 'hp', 'stage', 'ex_rule', 
-                  'weakness', 'resistance', 'retreat', 'pokemon_description', 'ability_name', 'ability_description', 'attack', 'pokemon']
+        fields = ['id', 'number', 'api_id', 'image_small', 'image_large', 'card_name', 'pokemon_type', 'hp', 'stage', 'ex_rule', 
+                  'weakness', 'resistance', 'retreat', 'pokemon_description', 'ability_name', 'ability_description', 'attack', 'pokemon_id']
         
     def create(self, validated_data):
         attacks_data = validated_data.pop('attack', [])
