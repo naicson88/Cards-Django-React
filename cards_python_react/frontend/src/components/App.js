@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import HomePage from "./HomePage";
 import ExcelDeckForm from "./ExcelDeckForm"
-import PkmHomePage  from "./src/components/PkmHomePage.js"
+import PkmHomePage  from "./PkmHomePage"
 
 import {
     BrowserRouter as Router,

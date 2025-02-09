@@ -3,18 +3,23 @@ import React, { useState, useEffect,  Component} from 'react';
 import { API_DJANGO } from './../constants'
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import Cards from "./Cards"
+import HeaderContainer from "./HeaderContainer"
 
 const PkmHomePage = () => {
 
     const history = useHistory();
-    const energyTypes = API_DJANGO+"/energy-types"
+    const energyTypesUrl = API_DJANGO+"/energy-types"
+
+    const [energyTypes, setEnergyTypes] = useState([])
 
     useEffect(() => {
-        console.log(energyTypes)
-        axios.get(energyTypes)
+
+        axios.get(energyTypesUrl)
         .then((response) => {
-            console.log(response);
-            alert("Item enviado com sucesso!!")
+            const data = response.data  
+            console.log(data)
+            setEnergyTypes(data)
         })
         .catch( (error) => {
             console.log(error)
@@ -24,9 +29,17 @@ const PkmHomePage = () => {
          
       }, []);
 
+    //   useEffect(() => {
+    //     console.log(energyTypes);  // Agora você verá o valor atualizado
+    //   }, [energyTypes]);
+
     return(
         <div>
-            <h1>Hello, World</h1>
+            <HeaderContainer text={'Cards Pokemon'} />    
+
+            <div className="container-cards">
+                {  energyTypes.map((card, index) =>  <Cards key={index} card={card}/> ) }              
+            </div>   
         </div>
     )
 }

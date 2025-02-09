@@ -16,7 +16,7 @@ const Cards = ({card}) => {
                 <img src={card.img} ></img>
             </div>
             <div className="card-description">
-                {card.description}
+                {card.description ? card.description : card.name}
             </div>
         </div>
     )
