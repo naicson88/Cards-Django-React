@@ -11,6 +11,7 @@ const PkmHomePage = () => {
 
     const history = useHistory();
 
+    const colors = ['GRASS', 'ROCK']
 
     const [energyTypes, setEnergyTypes] = useState([])
     const [pokemonsArray, setPokemonsArray] = useState([])
@@ -27,6 +28,11 @@ const PkmHomePage = () => {
     //     console.log(energyTypes);  // Agora você verá o valor atualizado
     //   }, [energyTypes]);
 
+    const handlePokemonTypeColor = () => {
+        let text = ''
+
+    }
+
     return(
         <div>
             <HeaderContainer text={'Cards Pokemon'} />    
@@ -38,16 +44,25 @@ const PkmHomePage = () => {
             <HeaderContainer text={'Pokemons'} />    
            
             <div className="container-cards pokemon-container">
-                <div className="single-card-pokemon" onClick={handleClickPokemon}>
-                    <div className="card-img">
-                         <img src="https://img.pokemondb.net/artwork/large/bulbasaur.jpg" ></img> 
-                    </div>
-                    <div className="pokemon-description">
-                       <span className='pokemon-id'>#0001</span>
-                       <span className='pokemon-name'>Bulbasaur</span>
-                       <span className='pokemon-types'>Grass · Poison</span>
-                    </div>
-                </div>              
+                {pokemonsArray.map((pokemon, index ) => (
+                    <div className="single-card-pokemon" onClick={handleClickPokemon}>
+                        <div className="card-img">
+                            <img src={pokemon.img} ></img> 
+                        </div>
+                        <div className="pokemon-description">
+                            <span className='pokemon-id'>{pokemon.id}</span>
+                            <span className='pokemon-name'>{pokemon.name}</span>
+
+                            <span className='pokemon-types'>
+                                    <span className={pokemon.type[0].name}> {pokemon.type[0].presentation_name} </span> 
+                                 { pokemon.type.length > 1 && (
+                                    <span className={pokemon.type[1].name}> · {pokemon.type[1].presentation_name} </span> 
+                                 )}   
+                            </span>
+                        </div>
+                     </div>  
+                ))}
+             
             </div>   
         </div>
     )
