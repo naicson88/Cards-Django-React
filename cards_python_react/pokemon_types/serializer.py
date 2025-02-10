@@ -5,4 +5,4 @@ class PokemonTypesSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = PokemonTypes
-        fields = ('id', 'name')
+        fields = '__all__'

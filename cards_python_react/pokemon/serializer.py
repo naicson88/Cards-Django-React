@@ -1,12 +1,16 @@
 from rest_framework import serializers
+
+from pokemon_types.serializer import PokemonTypesSerializer
 from .models import Pokemon
 
 class PokemonSerializer(serializers.ModelSerializer):
-    evolves_from_details = serializers.SerializerMethodField() 
+    evolves_from_details = serializers.SerializerMethodField()
+    type = PokemonTypesSerializer(many=True)  # Isso inclui todos os objetos de tipo na resposta JSON
+
     
     class Meta:
         model = Pokemon
-        fields = ('id', 'name', 'evolves_from', 'evolves_from_details', 'evolves_to', 'img', 'type', 'species', 'height', 'weight', 'hp', 'attack', 'defense', 'sp_atk', 'sp_def', 'speed' )
+        fields = '__all__'
     
     def get_evolves_from_details(self, obj):
         # Retorna os dados completos do Pokémon relacionado em "evolves_from"
