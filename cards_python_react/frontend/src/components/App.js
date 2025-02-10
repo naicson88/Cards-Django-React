@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import HomePage from "./HomePage";
 import ExcelDeckForm from "./ExcelDeckForm"
 import PkmHomePage  from "./PkmHomePage"
+import PkmDetails  from "./PkmDetails"
 
 import {
     BrowserRouter as Router,
@@ -25,6 +26,7 @@ export default class App extends Component {
                     <Route exact path="/"> <HomePage />  </Route>
                     <Route path={"/:excel-deck"} exact component={ExcelDeckForm} />
                     <Route path={"/:pkm-home"} exact component={PkmHomePage} />
+                    <Route path={"/:pkm-details"} exact component={PkmDetails} />
                     
                 </Switch>
                 </div>       

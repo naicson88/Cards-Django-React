@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect,  Component} from 'react';
+import React, { useState, useEffect} from 'react';
 
 import { useHistory } from "react-router-dom";
 import "./../../static/css/PkmHomePage.css"
