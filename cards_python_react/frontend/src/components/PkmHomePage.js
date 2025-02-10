@@ -1,33 +1,27 @@
 
 import React, { useState, useEffect,  Component} from 'react';
-import { API_DJANGO } from './../constants'
+
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import "./../../static/css/PkmHomePage.css"
 import Cards from "./Cards"
 import HeaderContainer from "./HeaderContainer"
+import { getAllEnergyTypes, getAllPokemons } from './../services/PkmHomePageService'
 
 const PkmHomePage = () => {
 
     const history = useHistory();
-    const energyTypesUrl = API_DJANGO+"/energy-types"
+
 
     const [energyTypes, setEnergyTypes] = useState([])
+    const [pokemonsArray, setPokemonsArray] = useState([])
 
-    useEffect(() => {
-
-        axios.get(energyTypesUrl)
-        .then((response) => {
-            const data = response.data  
-            console.log(data)
-            setEnergyTypes(data)
-        })
-        .catch( (error) => {
-            console.log(error)
-            alert("Item NÃO enviado!")
-        })
-         // Dependências vazias ([]) significa que isso será chamado apenas uma vez após a montagem
+    useEffect(() => {   
+        getAllEnergyTypes(setEnergyTypes);
+        getAllPokemons(setPokemonsArray)
          
       }, []);
+    
+    const handleClickPokemon = () => { console.log("happy")}
 
     //   useEffect(() => {
     //     console.log(energyTypes);  // Agora você verá o valor atualizado
@@ -39,6 +33,21 @@ const PkmHomePage = () => {
 
             <div className="container-cards">
                 {  energyTypes.map((card, index) =>  <Cards key={index} card={card}/> ) }              
+            </div>  
+            <br></br> 
+            <HeaderContainer text={'Pokemons'} />    
+           
+            <div className="container-cards pokemon-container">
+                <div className="single-card-pokemon" onClick={handleClickPokemon}>
+                    <div className="card-img">
+                         <img src="https://img.pokemondb.net/artwork/large/bulbasaur.jpg" ></img> 
+                    </div>
+                    <div className="pokemon-description">
+                       <span className='pokemon-id'>#0001</span>
+                       <span className='pokemon-name'>Bulbasaur</span>
+                       <span className='pokemon-types'>Grass · Poison</span>
+                    </div>
+                </div>              
             </div>   
         </div>
     )

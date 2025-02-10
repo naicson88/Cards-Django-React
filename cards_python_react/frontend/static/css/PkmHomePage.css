@@ -1,0 +1,55 @@
+
+.single-card-pokemon {
+    width: 16%;
+    border: solid thin yellow;
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single-card-pokemon .card-img img{
+
+        width: 100%;
+        height: 100%;
+    
+}
+
+.pokemon-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #ebe7e7 !important;
+    justify-content: center;
+    
+}
+
+.single-card-pokemon .card-img{
+    height: 60%;
+    background-color: red;
+}
+
+.single-card-pokemon .pokemon-description .pokemon-id {
+
+    font-size: small;
+    color: #737373;
+    font-family: "Fira Sans", "Trebuchet MS", Ubuntu, Helvetica, Arial, sans-serif;
+}
+
+.single-card-pokemon .pokemon-description .pokemon-name {
+
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2769be;
+    cursor: pointer;
+    font-family: "Fira Sans", "Trebuchet MS", Ubuntu, Helvetica, Arial, sans-serif;
+    line-height: 1.25em;
+}
+
+.single-card-pokemon .pokemon-description .pokemon-types {
+
+    color: black;
+    line-height: 1.25em;
+}
