@@ -24,7 +24,10 @@ const PkmDetails = () => {
                             </tr>
                             <tr>
                                 <td className='td-1'>Type :</td>
-                                <td className='td-2'>Grass - Poison</td>
+                                <td className='td-2'>
+                                    <span className="span-color span-color-GRASS">Grass </span>                             
+                                    <span className="span-color span-color-POISON">Poison</span>                            
+                                </td>
                             </tr>
                             <tr>
                                 <td className='td-1'>Height :</td>
@@ -68,36 +71,12 @@ const PkmDetails = () => {
                     </div>
 
                     <div className='attacks'>
-                    <table>
-                            <tr>
-                                <th style={{width:'25%'}}></th>
-                                <th></th> 
-                            </tr>
-                            <tr>
-                                <td className='td-1'>HP :</td>
-                                <td className='td-2'>45</td>
-                            </tr>
-                            <tr>
-                                <td className='td-1'>Attack :</td>
-                                <td className='td-2'>49</td>
-                            </tr>
-                            <tr>
-                                <td className='td-1'>Defense :</td>
-                                <td className='td-2'>49</td>
-                            </tr>
-                            <tr>
-                                <td className='td-1'>Sp. Atk :</td>
-                                <td className='td-2'>65</td>
-                            </tr>
-                            <tr>
-                                <td className='td-1'>Sp. Def :</td>
-                                <td className='td-2'>65</td>
-                            </tr>
-                            <tr>
-                                <td className='td-1'>Speed :</td>
-                                <td className='td-2'>65</td>
-                            </tr>
-                        </table>
+                        <div className='card-attack'>
+                            <div className='card-attack-title'>Leech Seed (20) </div>
+                            <div className='card-attack-desc'>
+                                 Heal 20 damage from this Pokémon.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div> 

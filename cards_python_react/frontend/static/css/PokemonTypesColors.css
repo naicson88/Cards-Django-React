@@ -16,3 +16,41 @@
 .DARK {color: #573e31;}
 .STEEL {color: #8e8ea4;}
 .FAIRY {color: #e76de7;}
+
+.span-color-GRASS {background-color: #5cb737;}
+.span-color-NORMAL {background-color: silver;}
+.span-color-FIRE {background-color: #d52100;}
+.span-color-WATER {background-color: #0080ff;}
+.span-color-ELECTRIC {background-color: #c90;}
+.span-color-ICE {background-color: #0af;}
+.span-color-FIGHTING {background-color: #a84d3d;}
+.span-color-POISON {background-color: #88447a;}
+.span-color-GROUND {background-color: #bf9926;}
+.span-color-FLYING {background-color: #556dff;}
+.span-color-PSYCHIC {background-color: #ff227a;}
+.span-color-BUG {background-color: #83901a;}
+.span-color-ROCK {background-color: #a59249;}
+.span-color-GHOST {background-color: #5454b3;}
+.span-color-DRAGON {background-color: #4e38e9;}
+.span-color-DARK {background-color: #573e31;}
+.span-color-STEEL {background-color: #8e8ea4;}
+.span-color-FAIRY {background-color: #e76de7;}
+
+
+.span-color{
+    display: inline-block;
+    width: 66px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    color:#fff;
+    font-size: .75rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .7);
+    text-transform: uppercase;
+    transition: opacity .4s;
+    cursor: pointer;
+    margin-right: 4px;
+
+}
