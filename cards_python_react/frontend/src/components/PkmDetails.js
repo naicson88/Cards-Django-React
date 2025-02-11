@@ -6,7 +6,7 @@ const PkmDetails = () => {
     return (
         <div>
            <HeaderContainer text={'Bulbasaur'} />   
-           <div className="container-cards">
+           <div className="container-cards" style={{backgroundColor: '#fff'}}>
                 <div className='first-row'>
                     <div className='image'>
                         <img src="https://img.pokemondb.net/artwork/large/bulbasaur.jpg" ></img> 
@@ -77,6 +77,27 @@ const PkmDetails = () => {
                                  Heal 20 damage from this Pokémon.
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div className='second-row'>
+                    <div>
+                        hahahah
+                        {/* <div className="single-card-pokemon">
+                            <div className="card-img">
+                                <img src={pokemon.img} ></img> 
+                            </div>
+                            <div className="pokemon-description">
+                                <span className='pokemon-id'>{pokemon.id}</span>
+                                <span className='pokemon-name'>{pokemon.name}</span>
+
+                                <span className='pokemon-types'>
+                                        <span className={pokemon.type[0].name}> {pokemon.type[0].presentation_name} </span> 
+                                    { pokemon.type.length > 1 && (
+                                        <span className={pokemon.type[1].name}> · {pokemon.type[1].presentation_name} </span> 
+                                    )}   
+                                </span>
+                            </div>
+                        </div>  */}
                     </div>
                 </div>
             </div> 

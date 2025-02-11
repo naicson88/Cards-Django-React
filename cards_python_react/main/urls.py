@@ -49,6 +49,8 @@ urlpatterns = [
     
     path('pokemon/create', pokemon.create_pokemon),
     path('pokemon', pokemon.get_all_pokemon),
+    path('pokemon/<int:pk>/', pokemon.get_pokemon_by_id),
+    
     
     path('card/create', card.create_card),
 ]

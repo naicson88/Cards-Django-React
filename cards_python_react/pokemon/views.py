@@ -20,3 +20,11 @@ def get_all_pokemon(request):
     serializer = PokemonSerializer(data, context={'request': request}, many=True)
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def get_pokemon_by_id(request, pk):
+    data = Pokemon.objects.get(pk=pk)
+    print(data)
+    serializer = PokemonSerializer(data, context={'request': request})
+    
+    return Response(serializer.data,  status=status.HTTP_200_OK)

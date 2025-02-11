@@ -6,7 +6,6 @@ from .models import Pokemon
 class PokemonSerializer(serializers.ModelSerializer):
     evolves_from_details = serializers.SerializerMethodField()
     type = PokemonTypesSerializer(many=True)  # Isso inclui todos os objetos de tipo na resposta JSON
-
     
     class Meta:
         model = Pokemon
@@ -17,3 +16,9 @@ class PokemonSerializer(serializers.ModelSerializer):
         if obj.evolves_from:
             return PokemonSerializer(obj.evolves_from).data  # Serializa o objeto "evolves_from" completamente
         return None  # Se não houver "evolves_from", retorna None 
+    
+    def validate_type(self, value):
+        if isinstance(value, list):
+            return value
+        return [value]
+        

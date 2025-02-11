@@ -92,3 +92,11 @@ table tr {
     font-size: small;
     background-color: #F2F2F2;
 }
+
+/******************* SECOND ROW ********************/
+
+.second-row {
+    color: black;
+    border: solid green;
+    width: 100%;
+}
