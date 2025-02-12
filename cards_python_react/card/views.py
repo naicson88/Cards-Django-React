@@ -29,10 +29,13 @@ def get_all_pokemon_attacks(request, pokemon_id):
     cards = Card.objects.filter(pokemon_id=pokemon_id)
     print(cards)
     data = []
+    atk_name = []
     
     for card in cards:
         for atk in card.attack.all():
-            data.append(atk)
+                if atk.name not in atk_name:
+                  atk_name.append(atk.name)    
+                  data.append(atk)
 
     serializer = AttackSerializer(data, context={'request': request}, many=True)
     

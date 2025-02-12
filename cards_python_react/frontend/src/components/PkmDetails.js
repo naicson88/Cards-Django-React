@@ -4,7 +4,8 @@ import "./../../static/css/PkmDetails.css"
 import { getQueryParam, handlePokemonIdFormat } from './../utils'
 
 import { 
-    getPokemonById
+    getPokemonById,
+    getPokemonAttacks
  } from './../services/PkmDetailsService'
 
 const PkmDetails = () => {
@@ -13,6 +14,7 @@ const PkmDetails = () => {
 
     const [pokemon, setPokemon] = useState({})
     const [pokemonType, setPokemonType] = useState([])
+    const [pokemonAttacks, setPokemonAttacks] = useState([])
     const [formattedId, setFormattedId] = useState('')
 
 
@@ -20,6 +22,7 @@ const PkmDetails = () => {
         const loadPokemon = async () => {
            const id = getQueryParam('id');
            await getPokemonById(setPokemon, setPokemonType, id); 
+           await getPokemonAttacks(setPokemonAttacks, id)
            setIsPokemonLoaded(true)
           }
 
@@ -115,12 +118,19 @@ const PkmDetails = () => {
                     </div>
 
                     <div className='attacks'>
-                        <div className='card-attack'>
-                            <div className='card-attack-title'>Leech Seed (20) </div>
-                            <div className='card-attack-desc'>
-                                Heal 20 damage from this Pokémon.
+
+                        {
+                        pokemonAttacks.map((attack, index) => 
+                            <div className="card-attack"   key={index}>
+                                <div className={`card-attack-title  span-color-${pokemonType[0].name}`}>
+                                    {attack.name} ({attack.hit_point}) 
+                                </div>
+                                <div className='card-attack-desc'>
+                                    {attack.description}
+                                </div>
                             </div>
-                        </div>
+                        )}
+
                     </div>
                 </div>
 
