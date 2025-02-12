@@ -22,3 +22,18 @@ def get_all_cards(request):
     serializer = CardSerializer(data, context={'request': request}, many=True)
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def get_all_pokemon_attacks(request, pokemon_id):
+    cards = Card.objects.filter(pokemon_id=pokemon_id)
+    print(cards)
+    data = []
+    
+    for card in cards:
+        for atk in card.attack.all():
+            data.append(atk)
+
+    serializer = AttackSerializer(data, context={'request': request}, many=True)
+    
+    return Response(serializer.data,  status=status.HTTP_200_OK)
