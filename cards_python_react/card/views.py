@@ -15,3 +15,10 @@ def create_card (request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET'])
+def get_all_cards(request):
+    data = Card.objects.all()
+    serializer = CardSerializer(data, context={'request': request}, many=True)
+    
+    return Response(serializer.data,  status=status.HTTP_200_OK)

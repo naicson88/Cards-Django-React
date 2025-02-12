@@ -1,18 +1,14 @@
 
 import React, { useState, useEffect} from 'react';
 
-import { useHistory } from "react-router-dom";
+
 import "./../../static/css/PkmHomePage.css"
 import Cards from "./Cards"
 import HeaderContainer from "./HeaderContainer"
 import { getAllEnergyTypes, getAllPokemons } from './../services/PkmHomePageService'
+import { handleRedirect } from './../utils'
 
 const PkmHomePage = () => {
-
-    const history = useHistory();
-
-    const colors = ['GRASS', 'ROCK']
-
     const [energyTypes, setEnergyTypes] = useState([])
     const [pokemonsArray, setPokemonsArray] = useState([])
 
@@ -28,11 +24,6 @@ const PkmHomePage = () => {
     //     console.log(energyTypes);  // Agora você verá o valor atualizado
     //   }, [energyTypes]);
 
-    const handlePokemonTypeColor = () => {
-        let text = ''
-
-    }
-
     return(
         <div>
             <HeaderContainer text={'Cards Pokemon'} />    
@@ -45,13 +36,13 @@ const PkmHomePage = () => {
            
             <div className="container-cards pokemon-container">
                 {pokemonsArray.map((pokemon, index ) => (
-                    <div className="single-card-pokemon" onClick={handleClickPokemon}>
+                    <div key={index} className="single-card-pokemon" onClick={handleClickPokemon}>
                         <div className="card-img">
                             <img src={pokemon.img} ></img> 
                         </div>
                         <div className="pokemon-description">
                             <span className='pokemon-id'>{pokemon.id}</span>
-                            <span className='pokemon-name'>{pokemon.name}</span>
+                            <span className='pokemon-name' onClick={handleRedirect('/pkm-details?id='+pokemon.id)}>{pokemon.name}</span>
 
                             <span className='pokemon-types'>
                                     <span className={pokemon.type[0].name}> {pokemon.type[0].presentation_name} </span> 

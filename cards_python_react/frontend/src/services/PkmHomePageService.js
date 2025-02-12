@@ -4,9 +4,7 @@ import { API_DJANGO } from './../constants'
 const energyTypesUrl = API_DJANGO+"/energy-types"
 const getPokemonsUrl = API_DJANGO+"/pokemon"
 
-function timeout(delay) {
-    return new Promise( res => setTimeout(res, delay) );
-}
+
 
 export const getAllEnergyTypes = (setEnergyTypes) => {
     axios.get(energyTypesUrl)

@@ -53,4 +53,5 @@ urlpatterns = [
     
     
     path('card/create', card.create_card),
+    path('card', card.get_all_cards),
 ]
