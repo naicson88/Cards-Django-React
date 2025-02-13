@@ -118,7 +118,8 @@ table tr {
 .second-row {
     color: black;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 50px;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
@@ -202,20 +203,26 @@ table tr {
 
 /******************* THIRD ROW ********************/
 .third-row{
-    border: solid red;
+    border: solid thin red;
     margin-top: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     padding: 20px;
 }
 
 .single-card-tcg{
     width: 19%;
     height: 320px;
-    border: solid thin green;
+    cursor: pointer;
 }
 
 .single-card-tcg img {
     width: 100%;
     height: 100%;
+}
+
+.single-card-tcg img:hover {
+    transform: translateY(-15px);
+    cursor: pointer;
+    transition: 0.3s;
 }

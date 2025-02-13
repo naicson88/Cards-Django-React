@@ -5,6 +5,8 @@ import { API_DJANGO } from './../constants'
 const pokemonByIdUrl = API_DJANGO+"/pokemon/"
 const pokemonAttacksUrl = API_DJANGO+"card/pokemon-attacks/"
 const pokemonEvolutionsUrl = API_DJANGO+"pokemon/evolutions/"
+const pokemonCardsUrl = API_DJANGO+"card/pokemon-cards/"
+
 
 export const getPokemonById =  async (setPokemon, setPokemonType, id)  => {
     axios.get(pokemonByIdUrl+id+'/')
@@ -43,6 +45,20 @@ export const getPokemonEvolutions = async (setPokemonEvolution, pokemonId) => {
         const data = response.data  
         console.log(data)
         setPokemonEvolution(data)
+    })
+    .catch( (error) => {
+        console.log(error)
+        alert("Item NÃO enviado!")
+    })
+}
+
+export const getPokemonCards = async (setPokemonCards, pokemonId) => {
+    axios.get(pokemonCardsUrl+pokemonId)
+    .then( (response) => {
+        console.log("#getPokemonCards")
+        const data = response.data  
+        console.log(data)
+        setPokemonCards(data)
     })
     .catch( (error) => {
         console.log(error)

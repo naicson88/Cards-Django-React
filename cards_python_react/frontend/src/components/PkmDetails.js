@@ -6,7 +6,8 @@ import { getQueryParam, handlePokemonIdFormat,  } from './../utils'
 import { 
     getPokemonById,
     getPokemonAttacks,
-    getPokemonEvolutions
+    getPokemonEvolutions,
+    getPokemonCards
  } from './../services/PkmDetailsService'
 
 const PkmDetails = () => {
@@ -17,6 +18,7 @@ const PkmDetails = () => {
     const [pokemonType, setPokemonType] = useState([])
     const [pokemonAttacks, setPokemonAttacks] = useState([])
     const [pokemonEvolution, setPokemonEvolution] = useState([])
+    const [pokemonCards, setPokemonCards] = useState([])
     const [formattedId, setFormattedId] = useState('')
 
 
@@ -26,6 +28,7 @@ const PkmDetails = () => {
            await getPokemonById(setPokemon, setPokemonType, id); 
            await getPokemonAttacks(setPokemonAttacks, id)
            await getPokemonEvolutions(setPokemonEvolution, id)
+           await getPokemonCards(setPokemonCards, id)
            setIsPokemonLoaded(true)
           }
 
@@ -175,11 +178,16 @@ const PkmDetails = () => {
                      
 
                 </div>
-
+                 
+                <h3 className='evolutions-h'>Cards</h3>   
                 <div className='third-row'>
-                   <div className='single-card-tcg'> 
-                        <img src='https://dz3we2x72f7ol.cloudfront.net/expansions/shrouded-fable/pt-br/SV6pt5_PTBR_2.png' ></img>
-                   </div>
+                    
+                    {pokemonCards.map((card, index) => 
+                        <div className='single-card-tcg' key={index}> 
+                            <img src={card.image_small} loading="lazy" />
+                        </div>
+                    )}
+
                 </div>
             </div> 
         </div>      
