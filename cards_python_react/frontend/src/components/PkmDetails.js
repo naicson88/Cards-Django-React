@@ -1,11 +1,12 @@
 import React, { useState, useEffect,  Component} from 'react';
 import HeaderContainer from "./HeaderContainer"
 import "./../../static/css/PkmDetails.css"
-import { getQueryParam, handlePokemonIdFormat } from './../utils'
+import { getQueryParam, handlePokemonIdFormat,  } from './../utils'
 
 import { 
     getPokemonById,
-    getPokemonAttacks
+    getPokemonAttacks,
+    getPokemonEvolutions
  } from './../services/PkmDetailsService'
 
 const PkmDetails = () => {
@@ -15,6 +16,7 @@ const PkmDetails = () => {
     const [pokemon, setPokemon] = useState({})
     const [pokemonType, setPokemonType] = useState([])
     const [pokemonAttacks, setPokemonAttacks] = useState([])
+    const [pokemonEvolution, setPokemonEvolution] = useState([])
     const [formattedId, setFormattedId] = useState('')
 
 
@@ -23,6 +25,7 @@ const PkmDetails = () => {
            const id = getQueryParam('id');
            await getPokemonById(setPokemon, setPokemonType, id); 
            await getPokemonAttacks(setPokemonAttacks, id)
+           await getPokemonEvolutions(setPokemonEvolution, id)
            setIsPokemonLoaded(true)
           }
 
@@ -41,7 +44,7 @@ const PkmDetails = () => {
 
             <HeaderContainer text={pokemon.name} />  
 
-           <div className="container-cards" style={{backgroundColor: '#fff'}}>
+           <div id="container-cards-details">
              
                     <div className='first-row'>
                     <div className='image'>
@@ -134,12 +137,41 @@ const PkmDetails = () => {
                     </div>
                 </div>
 
-                
                 <div className='second-row'>
-                    <div>
-                        hahahah
+                    {pokemonEvolution.map((evolution, index) =>
+                    <>
+                       <div className='single-card-pokemon-details' key={index}>
 
-                    </div>
+                        <div className="card-img-evolution">
+                            <img className='poke-img' src={evolution.img} ></img> 
+
+                        </div>
+                        <div className="pokemon-description-evolution">
+                            <span className='pokemon-id'>{handlePokemonIdFormat(evolution.id)}</span>
+                            <span className='pokemon-name' >{evolution.name}</span>
+                        </div>
+                        <span className='pokemon-types'>
+                            <span className={evolution.type[0].name}><b> {evolution.type[0].presentation_name}</b> </span> 
+                            { pokemon.type.length > 1 && (
+                            <span className={evolution.type[1].name}> · <b>{evolution.type[1].presentation_name}</b>  </span> 
+                            )}  
+                        </span>
+                        
+
+                        </div>  
+                        {
+                            pokemonEvolution.length - 1 != index && (
+                                <div className='arrow-img'>
+                                    <img src='./../../static/images/icons/right-arrow.png'></img>
+                                </div>
+                            )
+                        }   
+                       
+                    </>
+
+                    )}
+                     
+
                 </div>
             </div> 
         </div>      

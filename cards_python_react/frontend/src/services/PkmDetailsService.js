@@ -4,6 +4,7 @@ import { API_DJANGO } from './../constants'
 
 const pokemonByIdUrl = API_DJANGO+"/pokemon/"
 const pokemonAttacksUrl = API_DJANGO+"card/pokemon-attacks/"
+const pokemonEvolutionsUrl = API_DJANGO+"pokemon/evolutions/"
 
 export const getPokemonById =  async (setPokemon, setPokemonType, id)  => {
     axios.get(pokemonByIdUrl+id+'/')
@@ -18,7 +19,6 @@ export const getPokemonById =  async (setPokemon, setPokemonType, id)  => {
         console.log(error)
         alert("Item NÃO enviado!")
     })
-     // Dependências vazias ([]) significa que isso será chamado apenas uma vez após a montagem
 }
 
 export const getPokemonAttacks = async (setPokemonAttacks, pokemonId) => {
@@ -33,5 +33,19 @@ export const getPokemonAttacks = async (setPokemonAttacks, pokemonId) => {
         console.log(error)
         alert("Item NÃO enviado!")
     })
-     // Dependências vazias ([]) significa que isso será chamado apenas uma vez após a montagem
+
+}
+
+export const getPokemonEvolutions = async (setPokemonEvolution, pokemonId) => {
+    axios.get(pokemonEvolutionsUrl+pokemonId)
+    .then( (response) => {
+        console.log("#getPokemonEvolutions")
+        const data = response.data  
+        console.log(data)
+        setPokemonEvolution(data)
+    })
+    .catch( (error) => {
+        console.log(error)
+        alert("Item NÃO enviado!")
+    })
 }
