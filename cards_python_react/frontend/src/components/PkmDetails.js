@@ -118,7 +118,7 @@ const PkmDetails = () => {
                     </div>
 
                     <div className='attacks'>
-
+                        <h3>Attacks</h3>
                         {
                         pokemonAttacks.map((attack, index) => 
                             <div className="card-attack"   key={index}>

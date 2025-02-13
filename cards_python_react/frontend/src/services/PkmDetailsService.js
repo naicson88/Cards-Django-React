@@ -10,6 +10,7 @@ export const getPokemonById =  async (setPokemon, setPokemonType, id)  => {
     .then( (response) => {
         console.log("#getPokemonById")
         const data = response.data  
+        console.log(data)
         setPokemonType(data.type)
         setPokemon(data)
     })
@@ -25,6 +26,7 @@ export const getPokemonAttacks = async (setPokemonAttacks, pokemonId) => {
     .then( (response) => {
         console.log("#getPokemonAttacks")
         const data = response.data  
+        console.log(data)
         setPokemonAttacks(data)
     })
     .catch( (error) => {
