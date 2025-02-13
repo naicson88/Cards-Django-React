@@ -25,3 +25,9 @@ class CardSerializer(serializers.ModelSerializer):
             card.attack.add(attack)
         
         return card
+
+class CardSimpleSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Card
+        fields = ['id', 'image_small']

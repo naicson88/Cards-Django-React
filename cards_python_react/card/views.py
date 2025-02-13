@@ -40,3 +40,11 @@ def get_all_pokemon_attacks(request, pokemon_id):
     serializer = AttackSerializer(data, context={'request': request}, many=True)
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def get_all_pokemon_cards(request, pokemon_id):
+    data = Card.objects.filter(pokemon_id=pokemon_id)
+    serializer = CardSimpleSerializer(data, context={'request': request}, many=True)
+    
+    return Response(serializer.data,  status=status.HTTP_200_OK)

@@ -137,7 +137,9 @@ const PkmDetails = () => {
                     </div>
                 </div>
 
+                <h3 className='evolutions-h'>Evolutions</h3>
                 <div className='second-row'>
+
                     {pokemonEvolution.map((evolution, index) =>
                     <>
                        <div className='single-card-pokemon-details' key={index}>
@@ -172,6 +174,12 @@ const PkmDetails = () => {
                     )}
                      
 
+                </div>
+
+                <div className='third-row'>
+                   <div className='single-card-tcg'> 
+                        <img src='https://dz3we2x72f7ol.cloudfront.net/expansions/shrouded-fable/pt-br/SV6pt5_PTBR_2.png' ></img>
+                   </div>
                 </div>
             </div> 
         </div>      
