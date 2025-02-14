@@ -6,7 +6,7 @@ const getPokemonsUrl = API_DJANGO+"/pokemon"
 
 
 
-export const getAllEnergyTypes = (setEnergyTypes) => {
+export const getAllEnergyTypes = async (setEnergyTypes) => {
     axios.get(energyTypesUrl)
     .then( (response) => {
         const data = response.data  
@@ -20,7 +20,7 @@ export const getAllEnergyTypes = (setEnergyTypes) => {
      // Dependências vazias ([]) significa que isso será chamado apenas uma vez após a montagem
 }
 
-export const getAllPokemons = (setPokemonsArray) => {
+export const getAllPokemons = async (setPokemonsArray) => {
     axios.get(getPokemonsUrl)
     .then((response) => {
         const data = response.data  

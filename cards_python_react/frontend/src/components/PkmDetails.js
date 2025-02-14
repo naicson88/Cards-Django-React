@@ -153,10 +153,10 @@ const PkmDetails = () => {
                         </div>
                         <div className="pokemon-description-evolution">
                             <span className='pokemon-id'>{handlePokemonIdFormat(evolution.id)}</span>
-                            <span className='pokemon-name' >{evolution.name}</span>
+                            <span className='pokemon-name' onClick={ () => window.location.href=`/pkm-details?id=${evolution.id}`}>{evolution.name}</span>
                         </div>
                         <span className='pokemon-types'>
-                            <span className={evolution.type[0].name}><b> {evolution.type[0].presentation_name}</b> </span> 
+                            <span className={evolution.type[0].name} ><b> {evolution.type[0].presentation_name}</b> </span> 
                             { pokemon.type.length > 1 && (
                             <span className={evolution.type[1].name}> · <b>{evolution.type[1].presentation_name}</b>  </span> 
                             )}  

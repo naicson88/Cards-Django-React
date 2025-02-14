@@ -1,28 +1,26 @@
 
-import React, { useState, useEffect} from 'react';
-
+import React, { useState, useEffect,  Component} from 'react';
 
 import "./../../static/css/PkmHomePage.css"
 import Cards from "./Cards"
 import HeaderContainer from "./HeaderContainer"
 import { getAllEnergyTypes, getAllPokemons } from './../services/PkmHomePageService'
-import { handleRedirect } from './../utils'
 
 const PkmHomePage = () => {
     const [energyTypes, setEnergyTypes] = useState([])
     const [pokemonsArray, setPokemonsArray] = useState([])
 
     useEffect(() => {   
-        getAllEnergyTypes(setEnergyTypes);
-        getAllPokemons(setPokemonsArray)
+        const loadContent = async () => {
+           await getAllEnergyTypes(setEnergyTypes);
+           await getAllPokemons(setPokemonsArray)
+        }
+
+        loadContent().catch(console.error); 
          
       }, []);
     
     const handleClickPokemon = () => { console.log("happy")}
-
-    //   useEffect(() => {
-    //     console.log(energyTypes);  // Agora você verá o valor atualizado
-    //   }, [energyTypes]);
 
     return(
         <div>
@@ -42,7 +40,7 @@ const PkmHomePage = () => {
                         </div>
                         <div className="pokemon-description">
                             <span className='pokemon-id'>{pokemon.id}</span>
-                            <span className='pokemon-name' onClick={handleRedirect('/pkm-details?id='+pokemon.id)}>{pokemon.name}</span>
+                            <div className='pokemon-name' onClick={ () => window.location.href=`/pkm-details?id=${pokemon.id}`}>{pokemon.name}</div>
 
                             <span className='pokemon-types'>
                                     <span className={pokemon.type[0].name}> {pokemon.type[0].presentation_name} </span> 
