@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import "./../../static/css/HomePage.css"
 import HeaderContainer from "./HeaderContainer"
 import Cards from "./Cards"
+
+
 import {
     BrowserRouter as Router,
     Switch,

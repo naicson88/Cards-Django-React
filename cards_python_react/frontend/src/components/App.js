@@ -4,6 +4,7 @@ import HomePage from "./HomePage";
 import ExcelDeckForm from "./ExcelDeckForm"
 import PkmHomePage  from "./PkmHomePage"
 import PkmDetails  from "./PkmDetails"
+import PkmCardDetails  from "./PkmCardDetails"
 
 import {
     BrowserRouter as Router,
@@ -22,13 +23,14 @@ export default class App extends Component {
         return (
             <Router>
                 <div className="container">
-                <Switch>
-                    <Route exact path="/"> <HomePage />  </Route>
-                    <Route path={"/:excel-deck"} exact component={ExcelDeckForm} />
-                    <Route path={"/:pkm-home"} exact component={PkmHomePage} />
-                    <Route path={"/:pkm-details"} exact component={PkmDetails} />
-                    
-                </Switch>
+                    <Switch>
+                        <Route exact path="/"> <HomePage />  </Route>
+                        <Route path={"/:excel-deck"} exact component={ExcelDeckForm} />
+                        <Route path={"/:pkm-home"} exact component={PkmHomePage} />
+                        <Route path={"/:pkm-details"} exact component={PkmDetails} />
+                        <Route path={"/:pkm-card-details"} exact component={PkmCardDetails} />
+                        
+                    </Switch>
                 </div>       
             </Router>
         )

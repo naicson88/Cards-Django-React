@@ -2,6 +2,7 @@ import React, { useState, useEffect,  Component} from 'react';
 import HeaderContainer from "./HeaderContainer"
 import "./../../static/css/PkmDetails.css"
 import { getQueryParam, handlePokemonIdFormat,  } from './../utils'
+import HomeButton from "../shared/HomeButton";
 
 import { 
     getPokemonById,
@@ -45,9 +46,13 @@ const PkmDetails = () => {
     return (
         <div>
 
+            <div>
+            <HomeButton path={`/pkm-home`} ></HomeButton>
+            </div>
+
             <HeaderContainer text={pokemon.name} />  
 
-           <div id="container-cards-details">
+           <div id="container-pokemon-details">
              
                     <div className='first-row'>
                     <div className='image'>
@@ -184,12 +189,12 @@ const PkmDetails = () => {
                     
                     {pokemonCards.map((card, index) => 
                         <div className='single-card-tcg' key={index}> 
-                            <img src={card.image_small} loading="lazy" />
+                            <img src={card.image_small} loading="lazy" onClick={ () => window.location.href=`/pkm-card-details?id=${card.id}`}/>
                         </div>
                     )}
 
                 </div>
-            </div> 
+          </div> 
         </div>      
     )
 }
