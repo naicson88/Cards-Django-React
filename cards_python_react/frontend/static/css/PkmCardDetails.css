@@ -2,4 +2,147 @@
 #container-card-details{
     background-image: url('./../images/icons/container_bg.png');
     background-color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+
 }
+
+.card-details-left-div{
+    border: solid red;
+    width: 30%;
+    display: flex;
+    justify-content: right;
+}
+
+
+.card-details-right-div {
+    border: solid green;
+    width: 55%;
+    display: flex;
+    justify-content: left;
+}
+
+.card-details-info {
+    width: 60%;
+
+}
+
+.card-details-info-header{
+    height: 55px;
+    background-color: #a4a4a4;
+    font-family: "Fira Sans", arial, sans-serif;
+    color: #F2F2F2;
+    padding: 10px;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    border-radius: 3px 3px 0 0;
+}
+
+.card-details-info-row-1 {
+    background-color: #F2F2F2;
+    color: #313131;
+    padding: 1px;
+    height: 45px;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.card-details-info-row-2 {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+}
+.card-details-info-row-2 h6 {
+    width: 100%;
+    text-align: center;
+    font-size: small;
+    color: silver;
+
+}
+
+.card-details-info-attack-cards{
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
+    margin-bottom: 10px;
+}
+
+.pkm-card-table{
+    width: 100%;
+}
+
+.pkm-card-table tr {
+    /* border: solid thin silver; */
+
+    background: rgb(232,179,19);
+    background: linear-gradient(90deg, rgba(232,179,19,1) 2%, rgba(9,121,50,1) 75%, rgba(0,212,255,1) 100%); font-weight: 500;
+}
+
+.card-details-info-attack-cards-th2{
+    color: #eee;
+    font-weight: 500;
+    width: 55%; 
+    text-align: center
+ }
+
+ .card-details-info-attack-cards-th3{
+    color: #444;
+    font-weight: 700;
+    text-align: right;
+    padding-right: 3px;
+ }
+
+ .span-attack-details{
+    font-size: 14px;
+    color: #919191;
+    /* border: solid thin silver; */
+    padding: 3px;
+    font-family: "Roboto", arial, sans-serif;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+ }
+
+ .card-details-info-row-3 {
+    background-color: #f2f2f2;
+    padding: 5px;
+    width: 90%;
+    border-radius: 5px;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+ }
+ .pkm-card-table-2  {
+    width: 100%;
+    color: #444;
+    text-align: center;
+
+ }
+
+ .pkm-card-table-2  tr th{
+    font-weight: 500;
+ }
+
+ .card-details-info-pkm-desc {
+    border: dashed thin silver;
+    color:#444;
+    font-weight: 400;
+    margin-top: 15px;
+    padding: 5px;
+    font-size: small;
+    text-align: left;
+    font-style: italic;
+    width: 80%;
+
+ }

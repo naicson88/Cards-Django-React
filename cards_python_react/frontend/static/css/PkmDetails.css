@@ -31,10 +31,10 @@
    
 
 }
-table {
+.pkm-table {
     width: 100%;
 }
-table tr {
+.pkm-table tr {
     border-width: 1px 0;
     border-style: solid;
     border-color: #f0f0f0;

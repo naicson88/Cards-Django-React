@@ -54,13 +54,13 @@ const PkmDetails = () => {
 
            <div id="container-pokemon-details">
              
-                    <div className='first-row'>
+                <div className='first-row'>
                     <div className='image'>
                         <img src={pokemon.img} ></img> 
                     </div>
 
                     <div className='description'>
-                        <table>
+                        <table className='pkm-table'>
                             <tbody>
                             <tr>
                                 <th style={{width:'25%'}}></th>

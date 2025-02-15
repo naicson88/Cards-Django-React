@@ -28,7 +28,7 @@ export default class App extends Component {
                         <Route path={"/:excel-deck"} exact component={ExcelDeckForm} />
                         <Route path={"/:pkm-home"} exact component={PkmHomePage} />
                         <Route path={"/:pkm-details"} exact component={PkmDetails} />
-                        <Route path={"/:pkm-card-details"} exact component={PkmCardDetails} />
+                        <Route path={"/:pkm-card"} exact component={PkmCardDetails} />
                         
                     </Switch>
                 </div>       
