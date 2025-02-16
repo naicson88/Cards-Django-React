@@ -59,6 +59,16 @@
 
 }
 
+.img-icon-grande{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+        
+    border: 2px solid #7c5;
+    border-radius: 50%;
+
+}
+
 .card-details-info-row-2 {
     background-color: #fff;
     display: flex;
@@ -108,6 +118,8 @@
     flex-direction: column;
     padding: 0px 10px;
     margin-bottom: 10px;
+    border: dotted thin silver;
+
 }
 
 .pkm-card-table{
@@ -115,7 +127,8 @@
 }
 
 .pkm-card-table tr {
-    border-bottom: dotted thin silver;
+    /* border-bottom: dotted thin silver; */
+
     /* border: solid thin silver; */
     /* background: rgb(19,27,232);
     background: linear-gradient(90deg, rgba(19,27,232,1) 2%, rgba(9,73,121,1) 31%, rgba(0,212,255,1) 100%); */
@@ -195,7 +208,8 @@
     display: flex;
     justify-content: space-evenly;
     font-family: "Flexo-Demi", arial, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 15px;
     margin-bottom: 15px;
+
  }

@@ -23,3 +23,5 @@ export const handlePokemonIdFormat = (id) => {
     return "#"+strId
 }
 
+
+

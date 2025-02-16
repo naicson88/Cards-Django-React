@@ -1,5 +1,6 @@
 from django.db import models
 
+from energy_types.models import EnergyTypes
 from pokemon_types.models import PokemonTypes
 from pokemon.models import Pokemon
 
@@ -23,7 +24,7 @@ class Card(models.Model):
     image_large = models.CharField(blank=True, null=True, max_length=200, unique=False)
     pokemon_id = models.ForeignKey(Pokemon, on_delete=models.CASCADE, related_name='pokemon')
     card_name = models.CharField(blank=False, null=False, max_length=100, unique=False)
-    pokemon_type = models.ForeignKey(PokemonTypes, on_delete=models.CASCADE, related_name='types')
+    pokemon_type = models.ForeignKey(EnergyTypes, on_delete=models.CASCADE, related_name='types')
     hp = models.SmallIntegerField()
     stage = models.CharField(blank=True, null=True, max_length=50, unique=False)
     ex_rule = models.CharField(blank=True, null=True, max_length=455, unique=False)
