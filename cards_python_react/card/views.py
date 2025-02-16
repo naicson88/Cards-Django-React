@@ -48,3 +48,10 @@ def get_all_pokemon_cards(request, pokemon_id):
     serializer = CardSimpleSerializer(data, context={'request': request}, many=True)
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
+
+@api_view(['GET'])
+def get_card_by_id(request, pk):
+    data = Card.objects.get(pk=pk)
+    serializer = CardSerializer(data, context={'request': request})
+    
+    return Response(serializer.data,  status=status.HTTP_200_OK)

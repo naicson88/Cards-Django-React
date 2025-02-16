@@ -58,5 +58,7 @@ urlpatterns = [
     path('card', card.get_all_cards),
     path('card/pokemon-attacks/<int:pokemon_id>', card.get_all_pokemon_attacks),
     path('card/pokemon-cards/<int:pokemon_id>', card.get_all_pokemon_cards),
+    path('card/<int:pk>', card.get_card_by_id),
+    
     
 ]

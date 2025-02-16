@@ -1,7 +1,7 @@
 
 #container-card-details{
     background-image: url('./../images/icons/container_bg.png');
-    background-color: #fff;
+    background-color: #d8d6d6;
     display: flex;
     justify-content: space-evenly;
     padding: 30px;
@@ -9,23 +9,26 @@
 }
 
 .card-details-left-div{
-    border: solid red;
+
     width: 30%;
     display: flex;
+    max-height: 400px;
     justify-content: right;
 }
 
 
 .card-details-right-div {
-    border: solid green;
+
     width: 55%;
     display: flex;
     justify-content: left;
+
 }
 
 .card-details-info {
+    border: solid thin silver;
     width: 60%;
-
+    background-color: #fff;
 }
 
 .card-details-info-header{
@@ -66,9 +69,37 @@
     width: 100%;
     text-align: center;
     font-size: small;
-    color: silver;
+    color: #444;
 
 }
+
+.card-details-inf-hability{
+    display: flex;
+    justify-content: left;
+    margin-top: 10px;
+
+}
+
+.card-details-inf-hability-icon{
+    width: 25%;
+    border-radius: 40px;
+    border-style: double;
+    border-color: silver;
+    background-color: #e3350d;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: small;
+    font-family: "Flexo-Demi", arial, sans-serif;
+    margin-right: 20px;
+}
+
+.card-details-inf-hability-name{
+    color: #e3350d;
+    font-family: "Flexo-Demi", arial, sans-serif;
+    font-weight: bold;
+}
+
 
 .card-details-info-attack-cards{
     width: 100%;
@@ -84,14 +115,15 @@
 }
 
 .pkm-card-table tr {
+    border-bottom: dotted thin silver;
     /* border: solid thin silver; */
+    /* background: rgb(19,27,232);
+    background: linear-gradient(90deg, rgba(19,27,232,1) 2%, rgba(9,73,121,1) 31%, rgba(0,212,255,1) 100%); */
 
-    background: rgb(232,179,19);
-    background: linear-gradient(90deg, rgba(232,179,19,1) 2%, rgba(9,121,50,1) 75%, rgba(0,212,255,1) 100%); font-weight: 500;
 }
 
 .card-details-info-attack-cards-th2{
-    color: #eee;
+    color: #444;
     font-weight: 500;
     width: 55%; 
     text-align: center
@@ -112,6 +144,17 @@
     font-family: "Roboto", arial, sans-serif;
     white-space: pre-wrap;
     word-wrap: break-word;
+ }
+
+ .card-details-inf-gx-icon{
+    background: rgb(164,164,164);
+    background: linear-gradient(90deg, rgba(164,164,164,1) 2%, rgba(9,73,121,1) 100%, rgba(0,212,255,1) 100%);
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+
  }
 
  .card-details-info-row-3 {
@@ -145,4 +188,14 @@
     font-style: italic;
     width: 80%;
 
+ }
+
+ .card-details-info-row-4{
+    color: #444;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: "Flexo-Demi", arial, sans-serif;
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 15px;
  }
