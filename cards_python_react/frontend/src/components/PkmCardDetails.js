@@ -43,7 +43,7 @@ const PkmCardDetails = () => {
     return (
         <div>
              <div>
-                 <HomeButton path={`/pkm-home`} ></HomeButton>
+                 <HomeButton path={`/pkm-home`} text={'Home'}></HomeButton>
             </div>
             <br></br>
 

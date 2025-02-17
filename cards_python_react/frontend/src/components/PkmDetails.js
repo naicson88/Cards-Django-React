@@ -47,7 +47,7 @@ const PkmDetails = () => {
         <div>
 
             <div>
-            <HomeButton path={`/pkm-home`} ></HomeButton>
+                 <HomeButton path={`/pkm-home`} text={'Home'}></HomeButton>
             </div>
 
             <HeaderContainer text={pokemon.name} />  
@@ -189,7 +189,7 @@ const PkmDetails = () => {
                     
                     {pokemonCards.map((card, index) => 
                         <div className='single-card-tcg' key={index}> 
-                            <img src={card.image_small} loading="lazy" onClick={ () => window.location.href=`/pkm-card-details?id=${card.id}`}/>
+                            <img src={card.image_small} loading="lazy" onClick={ () => window.location.href=`/pkm-card?id=${card.id}`}/>
                         </div>
                     )}
 

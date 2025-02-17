@@ -5,6 +5,8 @@ import "./../../static/css/PkmHomePage.css"
 import Cards from "./Cards"
 import HeaderContainer from "./HeaderContainer"
 import { getAllEnergyTypes, getAllPokemons } from './../services/PkmHomePageService'
+import { getQueryParam, handlePokemonIdFormat,  } from './../utils'
+import HomeButton from "../shared/HomeButton";
 
 const PkmHomePage = () => {
     const [energyTypes, setEnergyTypes] = useState([])
@@ -31,15 +33,18 @@ const PkmHomePage = () => {
             </div>  
             <br></br> 
             <HeaderContainer text={'Pokemons'} />    
-           
+            <div className='home-btn-new-pokemon'>
+                <HomeButton path={`/pkm-new-pokemon`} text={'New Pokemon'}></HomeButton>
+            </div>
             <div className="container-cards pokemon-container">
+           
                 {pokemonsArray.map((pokemon, index ) => (
                     <div key={index} className="single-card-pokemon" onClick={handleClickPokemon}>
                         <div className="card-img">
                             <img src={pokemon.img} ></img> 
                         </div>
                         <div className="pokemon-description">
-                            <span className='pokemon-id'>{pokemon.id}</span>
+                            <span className='pokemon-id'>{handlePokemonIdFormat(pokemon.id)}</span>
                             <div className='pokemon-name' onClick={ () => window.location.href=`/pkm-details?id=${pokemon.id}`}>{pokemon.name}</div>
 
                             <span className='pokemon-types'>

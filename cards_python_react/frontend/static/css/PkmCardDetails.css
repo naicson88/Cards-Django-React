@@ -1,7 +1,7 @@
 
 #container-card-details{
     background-image: url('./../images/icons/container_bg.png');
-    background-color: #d8d6d6;
+    background-color: #444;
     display: flex;
     justify-content: space-evenly;
     padding: 30px;

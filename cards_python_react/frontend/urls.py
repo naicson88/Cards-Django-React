@@ -6,5 +6,7 @@ urlpatterns = [
     path('excel-deck', index),
     path('pkm-home', index),
     path('pkm-details', index),
-    path('pkm-card', index)
+    path('pkm-card', index),
+    path('pkm-new-pokemon', index),
+    
 ]

@@ -1,0 +1,14 @@
+.select-type-icon{
+    width: 20px;
+    height: 20px;
+}
+option::after {
+    content: url('./../images/icons/excel.png');
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+    pointer-events: none;
+  }

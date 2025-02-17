@@ -11,13 +11,13 @@ def create_pokemon (request):
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    
+    print(serializer.errors)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def get_all_pokemon(request):
     data = Pokemon.objects.all()
-    serializer = PokemonSerializer(data, context={'request': request}, many=True)
+    serializer = PokemonSerializerGET(data, context={'request': request}, many=True)
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
 
@@ -25,7 +25,7 @@ def get_all_pokemon(request):
 def get_pokemon_by_id(request, pk):
     data = Pokemon.objects.get(pk=pk)
     print(data)
-    serializer = PokemonSerializer(data, context={'request': request})
+    serializer = PokemonSerializerGET(data, context={'request': request})
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
 
@@ -59,7 +59,7 @@ def get_pokemon_evolutions(request, pk):
             has_evolutions = True if pokemon_evolves_to.evolves_to else False
     
     data = evolutions      
-    serializer = PokemonSerializer(data, context={'request': request}, many=True)
+    serializer = PokemonSerializerGET(data, context={'request': request}, many=True)
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
 
