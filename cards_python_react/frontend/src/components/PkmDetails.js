@@ -46,8 +46,9 @@ const PkmDetails = () => {
     return (
         <div>
 
-            <div>
-                 <HomeButton path={`/pkm-home`} text={'Home'}></HomeButton>
+            <div style={{display: 'flex'}}>
+                 <HomeButton path={`/pkm-home`} text={'Home'}></HomeButton> /
+                 <HomeButton path={`/pkm-new-pokemon?id=${pokemon?.id}`} text={'Edit'}></HomeButton>
             </div>
 
             <HeaderContainer text={pokemon.name} />  

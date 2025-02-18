@@ -63,3 +63,17 @@ def get_pokemon_evolutions(request, pk):
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
 
+@api_view(['PUT'])
+def edit_pokemon_by_id(request):
+  
+    pokemon = Pokemon.objects.get(pk=request.data.get('id'))
+    
+    for attr, value in request.data.items():
+        if(attr != 'type'):
+            setattr(pokemon, attr, value)
+    
+    pokemon.type.set(request.data.get('type'))
+    pokemon.save()
+    
+    return Response("Salvo com sucesso",  status=status.HTTP_200_OK)
+

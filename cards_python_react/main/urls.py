@@ -51,6 +51,9 @@ urlpatterns = [
     path('pokemon', pokemon.get_all_pokemon),
     path('pokemon/<int:pk>/', pokemon.get_pokemon_by_id),
     path('pokemon/evolutions/<int:pk>', pokemon.get_pokemon_evolutions),
+    path('pokemon/edit', pokemon.edit_pokemon_by_id),
+    
+    
     
     
     
