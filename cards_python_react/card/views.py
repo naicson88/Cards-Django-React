@@ -13,13 +13,13 @@ def create_card (request):
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    
+    print(serializer.errors)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def get_all_cards(request):
     data = Card.objects.all()
-    serializer = CardSerializer(data, context={'request': request}, many=True)
+    serializer = CardSerializerGET(data, context={'request': request}, many=True)
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
 
@@ -52,6 +52,6 @@ def get_all_pokemon_cards(request, pokemon_id):
 @api_view(['GET'])
 def get_card_by_id(request, pk):
     data = Card.objects.get(pk=pk)
-    serializer = CardSerializer(data, context={'request': request})
+    serializer = CardSerializerGET(data, context={'request': request})
     
     return Response(serializer.data,  status=status.HTTP_200_OK)

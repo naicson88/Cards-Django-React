@@ -5,6 +5,8 @@ import ExcelDeckForm from "./ExcelDeckForm"
 import PkmHomePage  from "./PkmHomePage"
 import PkmDetails  from "./PkmDetails"
 import PkmCardDetails  from "./PkmCardDetails"
+import PkmNewCardForm  from "./PkmNewCardForm"
+
 
 import {
     BrowserRouter as Router,
@@ -31,6 +33,7 @@ export default class App extends Component {
                         <Route path={"/:pkm-details"} exact component={PkmDetails} />
                         <Route path={"/:pkm-card"} exact component={PkmCardDetails} />
                         <Route path={"/:pkm-new-pokemon"} exact component={PkmNewPokemonForm} />
+                        <Route path={"/:pkm-card-new"} exact component={PkmNewCardForm} />
                         
                     </Switch>
                 </div>       

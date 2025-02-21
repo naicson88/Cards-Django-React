@@ -22,7 +22,7 @@ class EnergyTypesSerialize(serializers.ModelSerializer):
 
 class CardSerializer(serializers.ModelSerializer):
     attack = AttackSerializer(many=True)
-    pokemon_type = EnergyTypesSerialize()
+    # pokemon_type = EnergyTypesSerialize()
     class Meta:
         model = Card
         fields = ['id', 'number', 'api_id', 'image_small', 'image_large', 'card_name', 'pokemon_type', 'hp', 'stage', 'ex_rule', 
@@ -43,3 +43,11 @@ class CardSimpleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Card
         fields = ['id', 'image_small']
+
+class CardSerializerGET(serializers.ModelSerializer):
+    pokemon_type = EnergyTypesSerialize()
+    attack = AttackSerializer(many=True)
+    
+    class Meta:
+        model = Card
+        fields = '__all__'
