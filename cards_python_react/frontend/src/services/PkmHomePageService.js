@@ -5,10 +5,6 @@ const energyTypesUrl = API_DJANGO+"/energy-types"
 const getPokemonsUrl = API_DJANGO+"/pokemon"
 const getPokemonTypesUrl = API_DJANGO+"/pokemon-types"
 
-
-
-
-
 export const getAllEnergyTypes = async (setEnergyTypes) => {
     axios.get(energyTypesUrl)
     .then( (response) => {

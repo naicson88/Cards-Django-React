@@ -43,6 +43,9 @@ const PkmDetails = () => {
         }
     }, [pokemon]);
 
+    const handleColor =  (color) => {
+        return "#f74728"
+    }
     return (
         <div>
 
@@ -133,7 +136,7 @@ const PkmDetails = () => {
                         <h3>Attacks</h3>
                         {
                         pokemonAttacks.map((attack, index) => 
-                            <div className="card-attack"   key={index}>
+                            <div className="card-attack"   key={index} style={{borderLeft: `solid ${pokemonType[0].color} 8px`}}>
                                 <div className={`card-attack-title  span-color-${pokemonType[0].name}`}>
                                     {attack.name} ({attack.hit_point}) 
                                 </div>
@@ -185,7 +188,10 @@ const PkmDetails = () => {
 
                 </div>
                  
-                <h3 className='evolutions-h'>Cards</h3>   
+                 <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <h3 className='evolutions-h' >Cards</h3>  <HomeButton path={`/pkm-card-new`} text={'Add'}></HomeButton> /
+                 </div>
+               
                 <div className='third-row'>
                     
                     {pokemonCards.map((card, index) => 

@@ -4,13 +4,14 @@ import "./../../static/css/PkmHomePage.css"
 import Cards from "./Cards"
 import HeaderContainer from "./HeaderContainer"
 import { getAllEnergyTypes } from './../services/PkmHomePageService'
-import { createPkmTcgCard } from './../services/PkmNewCardForm'
+import { createPkmTcgCard, createPkmTcgAdminAPI } from './../services/PkmNewCardForm'
 import { getQueryParam, handlePokemonIdFormat,  } from './../utils'
 import HomeButton from "../shared/HomeButton";
 
 const PkmNewCardForm = () => {
 
     const queryParamId = getQueryParam('id'); 
+    const queryParamPokemonApiId = getQueryParam('api_id'); 
 
     const [id, setId] = useState('');
     const [number, setNumber] = useState('');
@@ -83,7 +84,6 @@ const PkmNewCardForm = () => {
 
     const handleSubmit = e =>{
         e.preventDefault()
-
        // newCard.id = e.target.id.value.trim();
         newCard.number = e.target.number.value.trim();
         newCard.api_id = e.target.api_id.value.trim();
@@ -110,16 +110,45 @@ const PkmNewCardForm = () => {
             newCard.attack.push(newAtkObj1)
         }
 
-        if(e.target.atk_name1.value){
+        if(e.target.atk_name1 && e.target.atk_name1.value){
             newAtkObj2.name = e.target.atk_name1.value.trim();
             newAtkObj2.description = e.target.atk_description1.value.trim();
             newAtkObj2.hit_point = Number(e.target.hit_point1.value.trim());
             newAtkObj2.cost = e.target.cost1.value.trim();
             newCard.attack.push(newAtkObj2)
         }
-
         console.log(newCard)
         createPkmTcgCard(newCard)
+    }
+
+    const handleCreateCardAdminAPI = async () => {
+
+        const apiId = queryParamPokemonApiId
+        if(apiId){
+            const resp = await createPkmTcgAdminAPI(apiId)
+            console.log(resp)
+            
+            setNumber
+            setApi_id(resp.api_id)
+            setCard_name(resp.card_name)
+            setStage(resp.stage)
+            setWeaknesses(resp.weaknesses)
+            setHp(resp.hp)
+            //setResistance(resp.resistance)
+            setRetreat(resp.retreat)
+            setPokemon_description(resp.pokemon_description)
+            setImage_small(resp.image_small)
+            setImage_large(resp.image_large)
+            setEx_rule(resp.ex_rule)
+            setAbility_name(resp.ability_name)
+            setAbility_description(resp.ability_description)
+            setPokemon_id(resp.pokemon_id)
+            setAttack(resp.attack)
+
+        } else {
+            alert("API ID não encontrada")
+        }
+       
 
     }
 
@@ -154,6 +183,11 @@ const PkmNewCardForm = () => {
                             <Label for="id">ID:</Label>
                             <Input type="text" name="id" defaultValue={id} bsSize="sm"/>
                         </Col>
+                        <div>
+                            <Button  color="primary" onClick={handleCreateCardAdminAPI}>
+                            Create API
+                            </Button>
+                        </div>   
                     </Row>
                     
                     </FormGroup>

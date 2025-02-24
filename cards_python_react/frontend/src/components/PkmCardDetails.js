@@ -25,7 +25,7 @@ const PkmCardDetails = () => {
         const words = cost.split(" - ");
         let resp = ''
         words.map((word, index) => {
-            resp += "<img src='/../../static/images/icons/"+word+".png' "+"class='icons-img' style='width: 25px; height: 25px'/>" 
+            resp += "<img src='/../../static/images/icons/"+word+".png' "+"class='icons-img' style='width: 25px; height: 25px'/> " 
         })
 
         return resp
@@ -59,7 +59,7 @@ const PkmCardDetails = () => {
                            <div className='card-details-info-row-1'>
                                 <span style={{fontSize: '18px'}}>Stage: {cardTcg.stage}</span>
                                 <span> 
-                                    <span style={{fontSize: 'small'}}>HP</span>{cardTcg.hp} 
+                                    <span style={{fontSize: 'small'}}>HP</span>{cardTcg.hp} &nbsp; &nbsp;
                                     <img src={`/../../static/images/icons/${cardTcg.pokemon_type?.name}.png`} className='img-icon-grande'/>
                                 </span>                         
                            </div>
