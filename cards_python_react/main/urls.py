@@ -36,6 +36,8 @@ urlpatterns = [
 
     
     path('crawler/create-crawler-deck', crawler_views.create_deck),
+    path('crawler/crawler-new-pokemon', crawler_views.get_new_pokemon_infos),
+    
     
     path('', include('frontend.urls')),
     path('excel-deck', include('frontend.urls')),

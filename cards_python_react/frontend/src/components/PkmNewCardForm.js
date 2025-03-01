@@ -98,6 +98,7 @@ const PkmNewCardForm = () => {
         newCard.image_small = e.target.image_small.value.trim();
         newCard.image_large = e.target.image_large.value.trim();
         newCard.ex_rule = e.target.ex_rule.value.trim();
+        console.log(newCard.ex_rule)
         newCard.ability_name = e.target.ability_name.value.trim();
         newCard.ability_description = e.target.ability_description.value.trim();
         newCard.pokemon_id = Number(e.target.pokemon_id.value.trim());
