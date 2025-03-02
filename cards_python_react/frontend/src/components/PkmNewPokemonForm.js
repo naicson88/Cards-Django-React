@@ -3,7 +3,7 @@ import React, { useState, useEffect,  Component} from 'react';
 import "./../../static/css/PkmNewPokemonForm.css"
 import HeaderContainer from "./HeaderContainer"
 import { Button, Form, FormGroup, Input, Label, Row, Col, Toast } from "reactstrap";
-import { createPokemon, editPokemon } from './../services/PkmNewPokemonFormService'
+import { createPokemon, editPokemon, createPokemonCrawler } from './../services/PkmNewPokemonFormService'
 import { getPokemonTypes } from './../services/PkmHomePageService'
 import { getPokemonById } from './../services/PkmDetailsService'
 import HomeButton from "../shared/HomeButton";
@@ -79,6 +79,11 @@ const PkmNewPokemonForm = () => {
         queryParamId ? editPokemon(newPkm) : createPokemon(newPkm)
     }
 
+    const handlePokemonCrawler = async () => {
+        console.log("LIVE ALCOOLICA")
+        await createPokemonCrawler(setPokemon)
+    }
+
        const handleFormEdit = async () => {
             setId(pokemon.id)
             setName(pokemon.name)
@@ -114,6 +119,7 @@ const PkmNewPokemonForm = () => {
           }, []);
 
           useEffect(() => {   
+            console.log("ENTROOOU")
             const loadContent = async () => {
                handleFormEdit()
             }
@@ -131,13 +137,18 @@ const PkmNewPokemonForm = () => {
                  
             </div>
         <div className="div-form form-new-pokemon">
+            
         <Form style={{marginTop: "10px"}} onSubmit={handleSubmit}>
-
                 <FormGroup >
                     <Row className="row-cols-sm-auto g-6 align-items-center" style={{marginTop: "20px"}}>
                         <Col>
                             <Label for="id">ID:</Label>
                             <Input type="text" name="id" defaultValue={id} />
+                        </Col>
+                        <Col>
+                            <Button  color="danger" onClick={ () => handlePokemonCrawler(setPokemon)}>
+                                Crawler
+                            </Button>
                         </Col>
                     </Row>
                     
