@@ -4,6 +4,8 @@ from .models import Pokemon
 from .serializer import *
 from rest_framework.response import Response
 from rest_framework import status
+from django.core.paginator import Paginator
+
 
 @api_view(['POST'])
 def create_pokemon (request):
@@ -16,7 +18,14 @@ def create_pokemon (request):
 
 @api_view(['GET'])
 def get_all_pokemon(request):
-    data = Pokemon.objects.all()
+    size = request.GET.get("size", 15)
+    page = request.GET.get("page", 1)
+    pokemons = Pokemon.objects.all().order_by('id')
+    
+    p = Paginator(pokemons, size)
+    
+    data = p.page(page)
+    
     serializer = PokemonSerializerGET(data, context={'request': request}, many=True)
     
     return Response(serializer.data,  status=status.HTTP_200_OK)

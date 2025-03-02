@@ -6,14 +6,8 @@ from .models import Crawler
 from .serializer import *
 from rest_framework.response import Response
 from rest_framework import status
-from scrapy.crawler import CrawlerProcess, CrawlerRunner
-from scrapy.utils.project import get_project_settings
-from .crawler import DeckCrawler
 import logging
-from twisted.internet import defer
-from twisted.internet.threads import deferToThread
 import os
-import subprocess
 import json
 
 

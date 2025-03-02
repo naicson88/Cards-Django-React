@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_DJANGO } from './../constants'
 
 const energyTypesUrl = API_DJANGO+"/energy-types"
-const getPokemonsUrl = API_DJANGO+"/pokemon"
+const getPokemonsUrl = API_DJANGO+"/pokemon?page=1&size=15"
 const getPokemonTypesUrl = API_DJANGO+"/pokemon-types"
 
 export const getAllEnergyTypes = async (setEnergyTypes) => {

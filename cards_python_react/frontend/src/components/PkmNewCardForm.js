@@ -89,6 +89,11 @@ const PkmNewCardForm = () => {
         newCard.api_id = e.target.api_id.value.trim();
         newCard.card_name = e.target.card_name.value.trim();
         newCard.pokemon_type = Number(e.target.pokemon_type.value.trim());
+        debugger
+        if(newCard.pokemon_type == "1"){
+            alert("Type invalido")
+            return false
+        }
         newCard.hp = Number(e.target.hp.value.trim());
         newCard.stage = e.target.stage.value.trim();
         newCard.weaknesses = e.target.weaknesses.value.trim();
