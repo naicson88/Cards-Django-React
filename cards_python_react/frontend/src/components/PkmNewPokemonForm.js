@@ -146,7 +146,7 @@ const PkmNewPokemonForm = () => {
                             <Input type="text" name="id" defaultValue={id} />
                         </Col>
                         <Col>
-                            <Button  color="danger" onClick={ () => handlePokemonCrawler(setPokemon)}>
+                            <Button  color="danger" onClick={ () => handlePokemonCrawler(setPokemon) }>
                                 Crawler
                             </Button>
                         </Col>

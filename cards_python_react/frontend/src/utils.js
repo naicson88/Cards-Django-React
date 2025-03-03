@@ -16,7 +16,7 @@ export const handleRedirect = (path) => {
 export const handlePokemonIdFormat = (id) => {
 
     let strId = id.toString()
-    console.log(strId.length)
+
     while(strId.length < 4){
         strId = "0"+strId;
     }

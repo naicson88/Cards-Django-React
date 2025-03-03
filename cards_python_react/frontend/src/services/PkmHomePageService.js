@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_DJANGO } from './../constants'
 
 const energyTypesUrl = API_DJANGO+"/energy-types"
-const getPokemonsUrl = API_DJANGO+"/pokemon?page=1&size=15"
+const getPokemonsUrl = API_DJANGO+"/pokemon"
 const getPokemonTypesUrl = API_DJANGO+"/pokemon-types"
 
 export const getAllEnergyTypes = async (setEnergyTypes) => {
@@ -16,21 +16,22 @@ export const getAllEnergyTypes = async (setEnergyTypes) => {
         console.log(error)
         alert("Item NÃO enviado!")
     })
-     // Dependências vazias ([]) significa que isso será chamado apenas uma vez após a montagem
 }
 
-export const getAllPokemons = async (setPokemonsArray) => {
-    axios.get(getPokemonsUrl)
+export const getAllPokemons = async (setPokemonsArray, setPages, page, size) => {
+    axios.get(getPokemonsUrl+`?page=${page}&size=${size}`)
     .then((response) => {
         const data = response.data  
         console.log(data)
+
         setPokemonsArray(data)
+
+        setPages(response.headers['num_pages'])
     })
     .catch( (error) => {
         console.log(error)
         alert("Item NÃO enviado!")
     })
-     // Dependências vazias ([]) significa que isso será chamado apenas uma vez após a montagem
 }
 
 export const getPokemonTypes = async (setPokemonType) => {
@@ -44,7 +45,7 @@ export const getPokemonTypes = async (setPokemonType) => {
         console.log(error)
         alert("Item NÃO enviado!")
     })
-     // Dependências vazias ([]) significa que isso será chamado apenas uma vez após a montagem
+
 }
 
 

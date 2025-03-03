@@ -21,14 +21,15 @@ def get_all_pokemon(request):
     size = request.GET.get("size", 15)
     page = request.GET.get("page", 1)
     pokemons = Pokemon.objects.all().order_by('id')
-    
+   
     p = Paginator(pokemons, size)
-    
+    num_pages = p.num_pages
     data = p.page(page)
     
+    headers = {'num_pages': num_pages}
     serializer = PokemonSerializerGET(data, context={'request': request}, many=True)
     
-    return Response(serializer.data,  status=status.HTTP_200_OK)
+    return Response(serializer.data, headers=headers, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 def get_pokemon_by_id(request, pk):
