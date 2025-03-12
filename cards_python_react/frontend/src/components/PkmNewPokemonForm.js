@@ -16,7 +16,8 @@ const PkmNewPokemonForm = () => {
     const [evolves_from, setEvolves_from] = useState('')
     const [evolves_to, setEvolves_to] = useState('')
     const [img, setImg] = useState('')
-    const [type, setType] = useState('')
+    const [type1, setType1] = useState('aaa')
+    const [type2, setType2] = useState('')
     const [species, setSpecies] = useState('')
     const [height, SetHeight] = useState('')
     const [weight, setWeight] = useState('')
@@ -80,7 +81,6 @@ const PkmNewPokemonForm = () => {
     }
 
     const handlePokemonCrawler = async () => {
-        console.log("LIVE ALCOOLICA")
         await createPokemonCrawler(setPokemon)
     }
 
@@ -90,7 +90,8 @@ const PkmNewPokemonForm = () => {
             setEvolves_from(pokemon.evolves_from)
             setEvolves_to(pokemon.evolves_to)
             setImg(pokemon.img)
-            // setType('')
+            setType1(pokemon.type1)
+            setType2(pokemon.type2)
             setSpecies(pokemon.species)
             SetHeight(pokemon.height)
             setWeight(pokemon.weight)
@@ -100,6 +101,31 @@ const PkmNewPokemonForm = () => {
             setSp_atk(pokemon.sp_atk)
             setSp_def(pokemon.sp_def)
             setSpeed(pokemon.speed)
+
+    
+            if(pokemon.type1 != undefined){
+                let tp = pokemon.type1.toUpperCase()
+                let type = document.getElementsByName('setType')[0];
+
+                for (let i = 0; i < type.length; i++) {
+                    var opt = type[i];
+                    if (opt.text == tp) {
+                        opt.selected = true;
+                    }
+                }
+            }
+
+            if(pokemon.type2 != undefined){
+                let tp = pokemon.type2.toUpperCase()
+                let type = document.getElementsByName('setType2')[0];
+
+                for (let i = 0; i < type.length; i++) {
+                    var opt = type[i];
+                    if (opt.text == tp) {
+                        opt.selected = true;
+                    }
+                }
+            }
         }
 
 
@@ -119,7 +145,6 @@ const PkmNewPokemonForm = () => {
           }, []);
 
           useEffect(() => {   
-            console.log("ENTROOOU")
             const loadContent = async () => {
                handleFormEdit()
             }
@@ -185,7 +210,7 @@ const PkmNewPokemonForm = () => {
                                     {type.name}
                                 </option>
                             )}
-                            
+            
                             </Input>
                         </Col>
                         <Col>

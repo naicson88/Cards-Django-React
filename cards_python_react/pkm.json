@@ -1,3 +1,3 @@
 [
-{"name": "Scyther", "id": "0123", "species": "Mantis Pok\u00e9mon", "img": "https://img.pokemondb.net/artwork/large/scyther.jpg", "height": "1.5\u00a0m (4\u203211\u2033)", "weight": "56.0\u00a0kg (123.5\u00a0lbs)", "hp": "70", "attack": "110", "defense": "80", "sp_atk": "55", "sp_def": "80", "speed": "105"}
+{"name": "Doduo", "id": "0084", "species": "Twin Bird Pok\u00e9mon", "type1": "Normal", "type2": "Flying", "img": "https://img.pokemondb.net/artwork/large/doduo.jpg", "height": "1.4\u00a0m (4\u203207\u2033)", "weight": "39.2\u00a0kg (86.4\u00a0lbs)", "hp": "35", "attack": "85", "defense": "45", "sp_atk": "35", "sp_def": "35", "speed": "75"}
 ]

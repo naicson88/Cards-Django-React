@@ -12,9 +12,12 @@ class DeckCrawler(scrapy.Spider):
     allowed_domains = ['pokemondb.net']
     #start_urls  = ['https://pokemondb.net/pokedex/scyther']
     
+    
     def start_requests(self):
+        url = 'https://pokemondb.net/pokedex/doduo'
+        
         logging.info("Iniciando as requisições...")
-        yield scrapy.Request('https://pokemondb.net/pokedex/scyther', callback=self.parse)
+        yield scrapy.Request(url, callback=self.parse)
 
     def parse(self, response, **kwargs):
         
@@ -22,6 +25,8 @@ class DeckCrawler(scrapy.Spider):
         id = response.xpath('/html/body/main/div[2]/div[2]/div/div[1]/div[2]/table/tbody/tr[1]/td/strong/text()').get()
         species = response.xpath('/html/body/main/div[2]/div[2]/div/div[1]/div[2]/table/tbody/tr[3]/td/text()').get()
         image =  response.xpath('/html/body/main/div[2]/div[2]/div/div[1]/div[1]/p[1]/a/@href').extract()[0]
+        type1 = response.xpath('/html/body/main/div[2]/div[2]/div/div[1]/div[2]/table/tbody/tr[2]/td/a[1]/text()').get()
+        type2 = response.xpath('/html/body/main/div[2]/div[2]/div/div[1]/div[2]/table/tbody/tr[2]/td/a[2]/text()').get()
         height = response.xpath('/html/body/main/div[2]/div[2]/div/div[1]/div[2]/table/tbody/tr[4]/td/text()').get()
         weight = response.xpath('/html/body/main/div[2]/div[2]/div/div[1]/div[2]/table/tbody/tr[5]/td/text()').get()
         hp = response.xpath('/html/body/main/div[2]/div[2]/div/div[2]/div[1]/div[2]/table/tbody/tr[1]/td[1]/text()').get()
@@ -35,6 +40,8 @@ class DeckCrawler(scrapy.Spider):
                 'name': name,
                 'id': id,
                 'species': species,
+                'type1': type1,
+                'type2' : type2,
                 'img' : image,
                 'height': height,
                 'weight': weight,

@@ -110,12 +110,6 @@ const PkmHomePage = () => {
                             </PaginationLink>
                         </PaginationItem>
                     )}
-
-                    {/* <PaginationItem active>
-                        <PaginationLink href="#">
-                        1
-                        </PaginationLink>
-                    </PaginationItem> */}
                     
                     <PaginationItem>
                         <PaginationLink
