@@ -208,10 +208,11 @@
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
+    flex-wrap: wrap;
 }
 
 .single-card-tcg{
-    width: 19%;
+    width: 240px;
     height: 320px;
     cursor: pointer;
 }

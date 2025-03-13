@@ -5,7 +5,11 @@ from .models import Card
 from .serializer import *
 from rest_framework.response import Response
 from rest_framework import status
+# delete from card_card where pokemon_id_id = 84
 
+# delete from card_attack where id > 275
+
+#  delete from card_card_attack where card_id in (select id from card_card where pokemon_id_id = 84)
 # Create your views here.
 @api_view(['POST'])
 def create_card (request):

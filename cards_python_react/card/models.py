@@ -18,7 +18,7 @@ class Attack(models.Model):
 # Create your models here.
 class Card(models.Model):
     id = models.BigAutoField(auto_created=True, primary_key=True, serialize=True, verbose_name='ID')
-    api_id = models.CharField(blank=True, null=True, max_length=100, unique=False)
+    api_id = models.CharField(blank=True, null=True, max_length=100, unique=True)
     number = models.CharField(blank=False, null=False, max_length=100, unique=False)
     image_small = models.CharField(blank=True, null=True, max_length=200, unique=False)
     image_large = models.CharField(blank=True, null=True, max_length=200, unique=False)
@@ -35,6 +35,7 @@ class Card(models.Model):
     ability_name = models.CharField(blank=True, null=True, max_length=50, unique=False)
     ability_description = models.CharField(blank=True, null=True, max_length=450, unique=False)
     attack = models.ManyToManyField(Attack, related_name='attack', blank=True, null=True)
+    own_this_card = models.BooleanField(null=True, blank=True)
     
     
     def __str__(self):
