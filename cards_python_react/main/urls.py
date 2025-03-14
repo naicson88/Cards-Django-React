@@ -55,15 +55,13 @@ urlpatterns = [
     path('pokemon/evolutions/<int:pk>', pokemon.get_pokemon_evolutions),
     path('pokemon/edit', pokemon.edit_pokemon_by_id),
     
-    
-    
-    
-    
     path('card/create', card.create_card),
     path('card', card.get_all_cards),
     path('card/pokemon-attacks/<int:pokemon_id>', card.get_all_pokemon_attacks),
     path('card/pokemon-cards/<int:pokemon_id>', card.get_all_pokemon_cards),
     path('card/<int:pk>', card.get_card_by_id),
+    path('card/owns_card/<int:pk>', card.edit_own_this_card),
+  
     
     
 ]

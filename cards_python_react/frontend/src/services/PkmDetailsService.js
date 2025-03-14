@@ -6,6 +6,7 @@ const pokemonByIdUrl = API_DJANGO+"/pokemon/"
 const pokemonAttacksUrl = API_DJANGO+"card/pokemon-attacks/"
 const pokemonEvolutionsUrl = API_DJANGO+"pokemon/evolutions/"
 const pokemonCardsUrl = API_DJANGO+"card/pokemon-cards/"
+const editOwnsCardUrl = API_DJANGO+"card/owns_card/"
 
 
 export const getPokemonById =  async (setPokemon, setPokemonType, id)  => {
@@ -52,13 +53,26 @@ export const getPokemonEvolutions = async (setPokemonEvolution, pokemonId) => {
     })
 }
 
-export const getPokemonCards = async (setPokemonCards, pokemonId) => {
-    axios.get(pokemonCardsUrl+pokemonId)
+export const getPokemonCards = async (setPokemonCards, pokemonId, setPages, page, size) => {
+    axios.get(pokemonCardsUrl+pokemonId+`?page=${page}&size=${size}`)
     .then( (response) => {
         console.log("#getPokemonCards")
         const data = response.data  
         console.log(data)
         setPokemonCards(data)
+        setPages(response.headers['num_pages'])
+    })
+    .catch( (error) => {
+        console.log(error)
+        alert("Item NÃO enviado!")
+    })
+}
+
+export const editOwnsCard = async (cardId) => {
+    axios.put(editOwnsCardUrl+cardId)
+    .then( (response) => {
+        console.log("#editOwnsCard")
+        console.log(response)
     })
     .catch( (error) => {
         console.log(error)

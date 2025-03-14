@@ -5,6 +5,7 @@ from .models import Card
 from .serializer import *
 from rest_framework.response import Response
 from rest_framework import status
+from django.core.paginator import Paginator
 # delete from card_card where pokemon_id_id = 84
 
 # delete from card_attack where id > 275
@@ -48,10 +49,18 @@ def get_all_pokemon_attacks(request, pokemon_id):
 
 @api_view(['GET'])
 def get_all_pokemon_cards(request, pokemon_id):
-    data = Card.objects.filter(pokemon_id=pokemon_id)
+    size = request.GET.get("size", 10)
+    page = request.GET.get("page", 1)
+    cards = Card.objects.filter(pokemon_id=pokemon_id).order_by('-own_this_card')
+       
+    p = Paginator(cards, size)
+    num_pages = p.num_pages
+    data = p.page(page)
+    headers = {'num_pages': num_pages}
+    
     serializer = CardSimpleSerializer(data, context={'request': request}, many=True)
     
-    return Response(serializer.data,  status=status.HTTP_200_OK)
+    return Response(serializer.data, headers=headers, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 def get_card_by_id(request, pk):
@@ -59,3 +68,14 @@ def get_card_by_id(request, pk):
     serializer = CardSerializerGET(data, context={'request': request})
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
+
+@api_view(['PUT'])
+def edit_own_this_card(request, pk):
+    card = Card.objects.get(pk=pk)
+    owns = card.own_this_card
+    
+    card.own_this_card = not owns
+    
+    card.save()
+    
+    return Response("Card editado com sucesso",  status=status.HTTP_200_OK)

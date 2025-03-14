@@ -3,13 +3,16 @@ import HeaderContainer from "./HeaderContainer"
 import "./../../static/css/PkmDetails.css"
 import { getQueryParam, handlePokemonIdFormat,  } from './../utils'
 import HomeButton from "../shared/HomeButton";
+import { Pagination , PaginationItem , PaginationLink } from "reactstrap";
 
 import { 
     getPokemonById,
     getPokemonAttacks,
     getPokemonEvolutions,
-    getPokemonCards
+    getPokemonCards,
+    editOwnsCard
  } from './../services/PkmDetailsService'
+import { Button } from 'reactstrap';
 
 const PkmDetails = () => {
     
@@ -22,6 +25,19 @@ const PkmDetails = () => {
     const [pokemonCards, setPokemonCards] = useState([])
     const [formattedId, setFormattedId] = useState('')
 
+    const [pages, setPages] = useState(0)
+    const [items, setItems] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+
+    useEffect(() => {   
+        const loadContent = async () => {
+            await handlePagination()
+        }
+
+        loadContent().catch(console.error); 
+        
+    }, [pages]);
+        
 
     useEffect(() => {   
         const loadPokemon = async () => {
@@ -29,7 +45,7 @@ const PkmDetails = () => {
            await getPokemonById(setPokemon, setPokemonType, id); 
            await getPokemonAttacks(setPokemonAttacks, id)
            await getPokemonEvolutions(setPokemonEvolution, id)
-           await getPokemonCards(setPokemonCards, id)
+           await getPokemonCards(setPokemonCards, id, setPages, 1, 10)
            setIsPokemonLoaded(true)
           }
 
@@ -43,9 +59,25 @@ const PkmDetails = () => {
         }
     }, [pokemon]);
 
-    const handleColor =  (color) => {
-        return "#f74728"
+    const handlePagination = async () => {
+        let arr = []
+        for(let i = 0; i < pages; i++){
+            arr.push(i+1);
+        }
+        setItems(arr)
     }
+
+    const handlePageChange = async (page) => {
+        const id = getQueryParam('id');
+        setCurrentPage(page)
+        await getPokemonCards(setPokemonCards, id, setPages, page, 10)
+    }
+
+    const handleCardIHave = async (id) => {
+        await editOwnsCard(id)
+        window.location.reload()
+    }
+
     return (
         <div>
 
@@ -173,12 +205,15 @@ const PkmDetails = () => {
                         
 
                         </div>  
-                        {
+                        {   
+                 
                             pokemonEvolution.length - 1 != index && (
                                 <div className='arrow-img'>
                                     <img src='./../../static/images/icons/right-arrow.png'></img>
                                 </div>
+                              
                             )
+                    
                         }   
                        
                     </>
@@ -197,10 +232,59 @@ const PkmDetails = () => {
                     {pokemonCards.map((card, index) => 
                         <div className='single-card-tcg' key={index}> 
                             <img src={card.image_small} loading="lazy" onClick={ () => window.location.href=`/pkm-card?id=${card.id}`}/>
+                            {card.own_this_card ? (
+                                <Button color="success" size="sm" onClick={() => handleCardIHave(card.id)} >I Have</Button>
+                            ) : (
+                                <Button color="danger" size="sm" onClick={() => handleCardIHave(card.id)}>Dont' Have</Button>
+                            )}
+                           
                         </div>
+                        
+                        
                     )}
 
+                              
                 </div>
+                <div className='pagination-div'>
+                    
+                    <Pagination aria-label="Page navigation example" >
+                        <PaginationItem disabled>
+                            <PaginationLink
+                            first
+                            href="#"
+                            />
+                        </PaginationItem>
+                        <PaginationItem disabled>
+                            <PaginationLink
+                            href="#"
+                            previous
+                            />
+                        </PaginationItem>
+    
+                        {pages > 0 && items.map((item) => 
+                            
+                            <PaginationItem  key={item} className={item === currentPage ? 'active' : ''} onClick={() => handlePageChange(item)}>
+                                <PaginationLink >
+                                {item}
+                                </PaginationLink>
+                            </PaginationItem>
+                        )}
+                        
+                        <PaginationItem>
+                            <PaginationLink
+                            href="#"
+                            next
+                            />
+                        </PaginationItem>
+                        <PaginationItem>
+                            <PaginationLink
+                            href="#"
+                            last
+                            />
+                        </PaginationItem>
+                    </Pagination>
+                </div>
+
           </div> 
         </div>      
     )

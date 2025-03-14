@@ -42,7 +42,7 @@ class CardSimpleSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Card
-        fields = ['id', 'image_small']
+        fields = ['id', 'image_small', 'own_this_card']
 
 class CardSerializerGET(serializers.ModelSerializer):
     pokemon_type = EnergyTypesSerialize()
