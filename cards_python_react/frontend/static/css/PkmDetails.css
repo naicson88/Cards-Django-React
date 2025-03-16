@@ -5,6 +5,12 @@
     background-image: url('./../images/icons/container_bg.png');
     background-color: #fff;
 }
+meter::-webkit-meter-optimum-value {
+    background: red;
+  }
+  meter::-moz-meter-bar { /* Firefox Pseudo Class */
+    background: red;
+  }
 .first-row{
     display: flex;
     flex-direction: row;

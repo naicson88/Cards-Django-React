@@ -74,8 +74,10 @@ const PkmDetails = () => {
     }
 
     const handleCardIHave = async (id) => {
-        await editOwnsCard(id)
-        window.location.reload()
+        if (window.confirm("Modificar status?")) {
+            await editOwnsCard(id)
+        }
+        
     }
 
     return (
@@ -142,11 +144,15 @@ const PkmDetails = () => {
                             </tr>
                             <tr>
                                 <td className='td-1'>Attack :</td>
-                                <td className='td-2'>{pokemon.attack}</td>
+                                <td className='td-2'>
+                                    {pokemon.attack}
+         
+                                </td>
                             </tr>
                             <tr>
                                 <td className='td-1'>Defense :</td>
                                 <td className='td-2'>{pokemon.defense}</td>
+
                             </tr>
                             <tr>
                                 <td className='td-1'>Sp. Atk :</td>

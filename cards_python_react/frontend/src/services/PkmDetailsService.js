@@ -20,7 +20,7 @@ export const getPokemonById =  async (setPokemon, setPokemonType, id)  => {
     })
     .catch( (error) => {
         console.log(error)
-        alert("Item NÃO enviado!")
+        alert("Erro getPokemonById!")
     })
 }
 
@@ -34,7 +34,7 @@ export const getPokemonAttacks = async (setPokemonAttacks, pokemonId) => {
     })
     .catch( (error) => {
         console.log(error)
-        alert("Item NÃO enviado!")
+        alert("Erro getPokemonAttacks!")
     })
 
 }
@@ -49,7 +49,7 @@ export const getPokemonEvolutions = async (setPokemonEvolution, pokemonId) => {
     })
     .catch( (error) => {
         console.log(error)
-        alert("Item NÃO enviado!")
+        alert("Erro getPokemonEvolutions!")
     })
 }
 
@@ -64,7 +64,7 @@ export const getPokemonCards = async (setPokemonCards, pokemonId, setPages, page
     })
     .catch( (error) => {
         console.log(error)
-        alert("Item NÃO enviado!")
+        alert("Erro getPokemonCards!")
     })
 }
 
@@ -76,6 +76,6 @@ export const editOwnsCard = async (cardId) => {
     })
     .catch( (error) => {
         console.log(error)
-        alert("Item NÃO enviado!")
+        alert("Erro editOwnsCard!")
     })
 }

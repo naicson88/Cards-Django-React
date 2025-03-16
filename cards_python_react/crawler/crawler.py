@@ -14,7 +14,7 @@ class DeckCrawler(scrapy.Spider):
     
     
     def start_requests(self):
-        url = 'https://pokemondb.net/pokedex/doduo'
+        url = 'https://pokemondb.net/pokedex/slowbro'
         
         logging.info("Iniciando as requisições...")
         yield scrapy.Request(url, callback=self.parse)
