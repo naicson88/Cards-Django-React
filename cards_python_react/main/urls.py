@@ -51,7 +51,7 @@ urlpatterns = [
     
     path('pokemon/create', pokemon.create_pokemon),
     path('pokemon', pokemon.get_all_pokemon),
-    path('pokemon/<int:pk>/', pokemon.get_pokemon_by_id),
+    path('pokemon/name/<str:name>', pokemon.get_pokemon_by_name),
     path('pokemon/evolutions/<int:pk>', pokemon.get_pokemon_evolutions),
     path('pokemon/edit', pokemon.edit_pokemon_by_id),
     

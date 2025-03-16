@@ -2,25 +2,26 @@ import axios from "axios";
 import { API_DJANGO } from './../constants'
 
 
-const pokemonByIdUrl = API_DJANGO+"/pokemon/"
+const pokemonByIdUrl = API_DJANGO+"/pokemon/name/"
 const pokemonAttacksUrl = API_DJANGO+"card/pokemon-attacks/"
 const pokemonEvolutionsUrl = API_DJANGO+"pokemon/evolutions/"
 const pokemonCardsUrl = API_DJANGO+"card/pokemon-cards/"
 const editOwnsCardUrl = API_DJANGO+"card/owns_card/"
 
 
-export const getPokemonById =  async (setPokemon, setPokemonType, id)  => {
-    axios.get(pokemonByIdUrl+id+'/')
+export const getPokemonByName =  async (setPokemon, setPokemonType, name, setPokemonId)  => {
+    axios.get(pokemonByIdUrl+name)
     .then( (response) => {
-        console.log("#getPokemonById")
+        console.log("#getPokemonByName")
         const data = response.data  
         console.log(data)
         setPokemonType(data.type)
+        setPokemonId(data.id)
         setPokemon(data)
     })
     .catch( (error) => {
         console.log(error)
-        alert("Erro getPokemonById!")
+        alert("Erro getPokemonByName!")
     })
 }
 

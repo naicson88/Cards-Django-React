@@ -6,7 +6,7 @@ import HomeButton from "../shared/HomeButton";
 import { Pagination , PaginationItem , PaginationLink } from "reactstrap";
 
 import { 
-    getPokemonById,
+    getPokemonByName,
     getPokemonAttacks,
     getPokemonEvolutions,
     getPokemonCards,
@@ -19,6 +19,7 @@ const PkmDetails = () => {
     const [isPokemonLoaded, setIsPokemonLoaded] = useState(false)
 
     const [pokemon, setPokemon] = useState({})
+    const [pokemonId, setPokemonId] = useState(0)
     const [pokemonType, setPokemonType] = useState([])
     const [pokemonAttacks, setPokemonAttacks] = useState([])
     const [pokemonEvolution, setPokemonEvolution] = useState([])
@@ -41,22 +42,29 @@ const PkmDetails = () => {
 
     useEffect(() => {   
         const loadPokemon = async () => {
-           const id = getQueryParam('id');
-           await getPokemonById(setPokemon, setPokemonType, id); 
-           await getPokemonAttacks(setPokemonAttacks, id)
-           await getPokemonEvolutions(setPokemonEvolution, id)
-           await getPokemonCards(setPokemonCards, id, setPages, 1, 10)
+           const name = getQueryParam('name');
+           await getPokemonByName(setPokemon, setPokemonType, name, setPokemonId); 
            setIsPokemonLoaded(true)
           }
 
         loadPokemon().catch(console.error); 
     }, []);
 
-    useEffect(() => {   
+    useEffect(() => {  
+        if(pokemonId != 0){
+             getPokemonAttacks(setPokemonAttacks, pokemonId)
+             getPokemonEvolutions(setPokemonEvolution, pokemonId)
+             getPokemonCards(setPokemonCards, pokemonId, setPages, 1, 10)
+        }
+        
+    }, [pokemonId]);
+
+    useEffect(() => {  
         if(isPokemonLoaded){
-            const id = handlePokemonIdFormat(pokemon.id)
+            const id = handlePokemonIdFormat(pokemonId)
             setFormattedId(id)
         }
+        
     }, [pokemon]);
 
     const handlePagination = async () => {

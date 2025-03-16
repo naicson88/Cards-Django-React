@@ -73,7 +73,7 @@ const PkmHomePage = () => {
                         </div>
                         <div className="pokemon-description">
                             <span className='pokemon-id'>{handlePokemonIdFormat(pokemon.id)}</span>
-                            <div className='pokemon-name' onClick={ () => window.location.href=`/pkm-details?id=${pokemon.id}`}>{pokemon.name}</div>
+                            <div className='pokemon-name' onClick={ () => window.location.href=`/pkm-details?name=${pokemon.name}`}>{pokemon.name}</div>
 
                             <span className='pokemon-types'>
                                     <span className={pokemon.type[0].name}> {pokemon.type[0].presentation_name} </span> 

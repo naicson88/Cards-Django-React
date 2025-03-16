@@ -32,9 +32,9 @@ def get_all_pokemon(request):
     return Response(serializer.data, headers=headers, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
-def get_pokemon_by_id(request, pk):
-    data = Pokemon.objects.get(pk=pk)
-    print(data)
+def get_pokemon_by_name(request, name):
+    
+    data = Pokemon.objects.filter(name=name)[:1].get()
     serializer = PokemonSerializerGET(data, context={'request': request})
     
     return Response(serializer.data,  status=status.HTTP_200_OK)
