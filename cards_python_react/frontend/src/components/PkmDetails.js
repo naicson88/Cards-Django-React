@@ -53,7 +53,7 @@ const PkmDetails = () => {
     useEffect(() => {  
         if(pokemonId != 0){
              getPokemonAttacks(setPokemonAttacks, pokemonId)
-             getPokemonEvolutions(setPokemonEvolution, pokemonId)
+            // getPokemonEvolutions(setPokemonEvolution, pokemonId)
              getPokemonCards(setPokemonCards, pokemonId, setPages, 1, 10)
         }
         
@@ -88,12 +88,34 @@ const PkmDetails = () => {
         
     }
 
+    const handleWidth = (param) =>{
+        if(param != undefined){
+            return param+"%"
+        }
+    }
+
+    const handleColor = (param) => {
+        if(param != undefined){
+            if(param >= 85){
+                return "DarkGreen"
+            }
+            else if(param >= 78 && param < 85){
+                return "DarkSeaGreen"
+            } else if (param < 80 && param >= 50){
+                return "gold"
+            } else {
+                return "coral"
+            }
+        }
+    }
+
     return (
         <div>
 
             <div style={{display: 'flex'}}>
                  <HomeButton path={`/pkm-home`} text={'Home'}></HomeButton> /
                  <HomeButton path={`/pkm-new-pokemon?id=${pokemon?.id}`} text={'Edit'}></HomeButton>
+
             </div>
 
             <HeaderContainer text={pokemon.name} />  
@@ -145,34 +167,50 @@ const PkmDetails = () => {
                             <tr>
                                 <th style={{width:'25%'}}></th>
                                 <th></th> 
+                                <th></th>
                             </tr>
                             <tr>
                                 <td className='td-1'>HP :</td>
                                 <td className='td-2'>{pokemon.hp}</td>
+                                <td className='bar'> 
+                                    <div className='bar-div' style={{width: handleWidth(pokemon.hp), backgroundColor: handleColor(pokemon.hp)}}> </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td className='td-1'>Attack :</td>
-                                <td className='td-2'>
-                                    {pokemon.attack}
-         
+                                <td className='td-2'>{pokemon.attack}</td>
+                                <td className='bar'> 
+                                    <div className='bar-div' style={{width: handleWidth(pokemon.attack), backgroundColor: handleColor(pokemon.attack)}}> </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td className='td-1'>Defense :</td>
                                 <td className='td-2'>{pokemon.defense}</td>
+                                <td className='bar'> 
+                                    <div className='bar-div' style={{width: handleWidth(pokemon.defense), backgroundColor: handleColor(pokemon.defense)}}> </div>
+                                </td>
 
                             </tr>
                             <tr>
                                 <td className='td-1'>Sp. Atk :</td>
                                 <td className='td-2'>{pokemon.sp_atk}</td>
+                                <td className='bar'> 
+                                    <div className='bar-div' style={{width: handleWidth(pokemon.sp_atk), backgroundColor: handleColor(pokemon.sp_atk)}}> </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td className='td-1'>Sp. Def :</td>
                                 <td className='td-2'>{pokemon.sp_def}</td>
+                                <td className='bar'> 
+                                    <div className='bar-div' style={{width: handleWidth(pokemon.sp_def), backgroundColor: handleColor(pokemon.sp_def)}}> </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td className='td-1'>Speed :</td>
                                 <td className='td-2'>{pokemon.speed}</td>
+                                <td className='bar'> 
+                                    <div className='bar-div' style={{width: handleWidth(pokemon.speed), backgroundColor: handleColor(pokemon.speed)}}> </div>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
