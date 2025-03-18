@@ -53,6 +53,7 @@ const PkmHomePage = () => {
     }
 
     return(
+
         <div>
             <HeaderContainer text={'Cards Pokemon'} />    
 

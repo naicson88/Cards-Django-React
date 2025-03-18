@@ -76,9 +76,8 @@ const PkmDetails = () => {
     }
 
     const handlePageChange = async (page) => {
-        const id = getQueryParam('id');
         setCurrentPage(page)
-        await getPokemonCards(setPokemonCards, id, setPages, page, 10)
+        await getPokemonCards(setPokemonCards, pokemonId, setPages, page, 10)
     }
 
     const handleCardIHave = async (id) => {
@@ -90,12 +89,16 @@ const PkmDetails = () => {
 
     const handleWidth = (param) =>{
         if(param != undefined){
+            if(param > 100)
+                return "100%"
+            
             return param+"%"
         }
     }
 
     const handleColor = (param) => {
         if(param != undefined){
+ 
             if(param >= 85){
                 return "DarkGreen"
             }

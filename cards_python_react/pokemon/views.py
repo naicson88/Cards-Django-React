@@ -33,7 +33,7 @@ def get_all_pokemon(request):
 
 @api_view(['GET'])
 def get_pokemon_by_name(request, name):
-    
+    print(name)
     data = Pokemon.objects.filter(name=name)[:1].get()
     serializer = PokemonSerializerGET(data, context={'request': request})
     

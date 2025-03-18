@@ -9,7 +9,7 @@ class Attack(models.Model):
       name = models.CharField(blank=True, null=True, max_length=100, unique=False)
       description = models.CharField(blank=True, null=True, max_length=455, unique=False)
       hit_point = models.SmallIntegerField()
-      cost = models.CharField(blank=True, null=True, max_length=50, unique=False)
+      cost = models.CharField(blank=True, null=True, max_length=200, unique=False)
       
       
       def __str__(self):

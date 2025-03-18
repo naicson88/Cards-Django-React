@@ -250,6 +250,7 @@ meter::-webkit-meter-optimum-value {
 }
 
 .bar-div{
+
     border-radius: 25px;
     height: 12px
 }

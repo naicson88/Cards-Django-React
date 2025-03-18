@@ -12,9 +12,14 @@ class DeckCrawler(scrapy.Spider):
     allowed_domains = ['pokemondb.net']
     #start_urls  = ['https://pokemondb.net/pokedex/scyther']
     
+# delete from pokemon_pokemon where id = 7
+# delete from pokemon_pokemon_type where pokemon_id = 7
+# delete from card_card where pokemon_id_id = 7
+# delete from card_card_attack where card_id in (8,9)
+    
     
     def start_requests(self):
-        url = 'https://pokemondb.net/pokedex/slowbro'
+        url = 'https://pokemondb.net/pokedex/ponyta'
         
         logging.info("Iniciando as requisições...")
         yield scrapy.Request(url, callback=self.parse)

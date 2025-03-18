@@ -1,3 +1,3 @@
 [
-{"name": "Slowbro", "id": "0080", "species": "Hermit Crab Pok\u00e9mon", "type1": "Water", "type2": "Psychic", "img": "https://img.pokemondb.net/artwork/large/slowbro.jpg", "height": "1.6\u00a0m (5\u203203\u2033)", "weight": "78.5\u00a0kg (173.1\u00a0lbs)", "hp": "95", "attack": "75", "defense": "110", "sp_atk": "100", "sp_def": "80", "speed": "30"}
+{"name": "Ponyta", "id": "0077", "species": "Fire Horse Pok\u00e9mon", "type1": "Fire", "type2": null, "img": "https://img.pokemondb.net/artwork/large/ponyta.jpg", "height": "1.0\u00a0m (3\u203203\u2033)", "weight": "30.0\u00a0kg (66.1\u00a0lbs)", "hp": "50", "attack": "85", "defense": "55", "sp_atk": "65", "sp_def": "65", "speed": "90"}
 ]
