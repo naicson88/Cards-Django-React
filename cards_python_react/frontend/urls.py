@@ -9,5 +9,6 @@ urlpatterns = [
     path('pkm-card', index),
     path('pkm-new-pokemon', index),
     path('pkm-card-new', index),
+    path('pkm-card-quantidade', index),
     
 ]

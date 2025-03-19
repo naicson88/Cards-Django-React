@@ -19,7 +19,7 @@ class DeckCrawler(scrapy.Spider):
     
     
     def start_requests(self):
-        url = 'https://pokemondb.net/pokedex/ponyta'
+        url = 'https://pokemondb.net/pokedex/blastoise'
         
         logging.info("Iniciando as requisições...")
         yield scrapy.Request(url, callback=self.parse)

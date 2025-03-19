@@ -1,3 +1,3 @@
 [
-{"name": "Ponyta", "id": "0077", "species": "Fire Horse Pok\u00e9mon", "type1": "Fire", "type2": null, "img": "https://img.pokemondb.net/artwork/large/ponyta.jpg", "height": "1.0\u00a0m (3\u203203\u2033)", "weight": "30.0\u00a0kg (66.1\u00a0lbs)", "hp": "50", "attack": "85", "defense": "55", "sp_atk": "65", "sp_def": "65", "speed": "90"}
+{"name": "Blastoise", "id": "0009", "species": "Shellfish Pok\u00e9mon", "type1": "Water", "type2": null, "img": "https://img.pokemondb.net/artwork/large/blastoise.jpg", "height": "1.6\u00a0m (5\u203203\u2033)", "weight": "85.5\u00a0kg (188.5\u00a0lbs)", "hp": "79", "attack": "83", "defense": "100", "sp_atk": "85", "sp_def": "105", "speed": "78"}
 ]

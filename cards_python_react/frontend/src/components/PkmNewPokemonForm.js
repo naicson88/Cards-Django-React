@@ -2,7 +2,7 @@
 import React, { useState, useEffect,  Component} from 'react';
 import "./../../static/css/PkmNewPokemonForm.css"
 import HeaderContainer from "./HeaderContainer"
-import { Button, Form, FormGroup, Input, Label, Row, Col, Toast } from "reactstrap";
+import { Button, Form, FormGroup, Input, Label, Row, Col, Toast, Spinner } from "reactstrap";
 import { createPokemon, editPokemon, createPokemonCrawler } from './../services/PkmNewPokemonFormService'
 import { getPokemonTypes } from './../services/PkmHomePageService'
 import { getPokemonById } from './../services/PkmDetailsService'
@@ -29,7 +29,7 @@ const PkmNewPokemonForm = () => {
     const [speed, setSpeed] = useState('')
     const [pokemon, setPokemon] = useState({})
     const [pokemonType, setPokemonType] = useState([])
-
+    const [ loader, setLoader] = useState(false)
     const queryParamId = getQueryParam('id'); 
 
     let newPkm = {
@@ -52,6 +52,7 @@ const PkmNewPokemonForm = () => {
 
     
     const handleSubmit = e =>{
+        setLoader(true)
         e.preventDefault()
         newPkm.id = Number(e.target.id.value.trim());
         newPkm.name = e.target.name.value.trim();
@@ -78,6 +79,7 @@ const PkmNewPokemonForm = () => {
         }
         console.log(newPkm)
         queryParamId ? editPokemon(newPkm) : createPokemon(newPkm)
+        setLoader(false)
     }
 
     const handlePokemonCrawler = async () => {
@@ -162,7 +164,14 @@ const PkmNewPokemonForm = () => {
                  
             </div>
         <div className="div-form form-new-pokemon">
-            
+            {loader && (
+                <div className='loader'>
+                    <Spinner>
+                        Loading...
+                    </Spinner>
+                </div>
+            )}
+
         <Form style={{marginTop: "10px"}} onSubmit={handleSubmit}>
                 <FormGroup >
                     <Row className="row-cols-sm-auto g-6 align-items-center" style={{marginTop: "20px"}}>

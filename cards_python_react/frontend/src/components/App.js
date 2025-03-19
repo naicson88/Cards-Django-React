@@ -16,6 +16,7 @@ import {
     Redirect,
   } from "react-router-dom";
 import PkmNewPokemonForm from "./PkmNewPokemonForm";
+import PkmCardsQuantidade from "./PkmCardsQuantidade";
 
 export default class App extends Component {
     constructor(props){
@@ -34,6 +35,8 @@ export default class App extends Component {
                         <Route path={"/:pkm-card"} exact component={PkmCardDetails} />
                         <Route path={"/:pkm-new-pokemon"} exact component={PkmNewPokemonForm} />
                         <Route path={"/:pkm-card-new"} exact component={PkmNewCardForm} />
+                        <Route path={"/:pkm-card-quantidade"} exact component={PkmCardsQuantidade} />
+                        
                         
                     </Switch>
                 </div>       

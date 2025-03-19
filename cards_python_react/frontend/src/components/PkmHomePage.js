@@ -71,6 +71,7 @@ const PkmHomePage = () => {
                     <div key={index} className="single-card-pokemon" onClick={handleClickPokemon}>
                         <div className="card-img">
                             <img src={pokemon.img} ></img> 
+                          
                         </div>
                         <div className="pokemon-description">
                             <span className='pokemon-id'>{handlePokemonIdFormat(pokemon.id)}</span>
